@@ -116,6 +116,15 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 .cta{background:#22201C;color:#F6F2EB;border-radius:28px;padding:56px 28px;text-align:center}
 .cta h2{margin:0 0 12px}.cta p{color:#CFCABF;margin:0 auto 26px;max-width:460px;line-height:1.6}
 .fl2{display:flex;gap:22px;flex-wrap:wrap}.fl2 a:hover{color:var(--acc)}
+[hidden]{display:none!important}
+.fc .btn.alt{background:transparent;color:#22201C;border-color:#22201C;margin-top:10px}
+.msg{font-size:13px;margin-top:12px;min-height:18px;color:#3D443E}
+.who{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;margin-bottom:16px;color:#3D443E}
+.who button{border:0;background:none;text-decoration:underline;cursor:pointer;color:inherit;min-height:44px}
+.od{margin-top:28px;border-top:1px solid #22201C33;padding-top:18px}.od h4{margin:0 0 10px;font:600 20px 'Fraunces',serif}
+.od div{font-size:13px;line-height:1.5;padding:10px 0;border-bottom:1px solid #22201C1a;color:#22201C}
+.md{max-height:92vh;overflow-y:auto}.md .btn{width:100%;margin-top:10px}.md .fd{margin-top:12px}.md .btn.alt{background:transparent;border-color:#22201C;color:#22201C}
+.note{grid-column:1/-1;font-size:13px;color:var(--mut);margin:0 0 4px}
 @media(max-width:700px){.links{display:none}.fg{grid-template-columns:1fr}.fd.full{grid-column:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ph{height:160px}.pi h3{font-size:15px}.pr b{font-size:20px}.art{min-height:440px}.fc{padding:20px}}
 </style>
 </head>
@@ -128,19 +137,25 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <aside class="dr" id="dr" aria-label="Menu" aria-hidden="true"><button class="x" id="dx" aria-label="Close menu">&times;</button>
 <nav><a href="#browse">Shop</a><a href="#sell" data-s>Sell</a></nav>
 <a class="btn" href="#sell" data-s>+ Sell an item</a></aside>
-<aside class="dr sd" id="sd" aria-label="List an item" aria-hidden="true"><button class="x" id="sx" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>List an item</h3><p>A few details so buyers know what they’re getting.</p>
+<aside class="dr sd" id="sd" aria-label="List an item" aria-hidden="true"><button class="x" id="sx" aria-label="Close">&times;</button><div class="sdi">
+<div class="fc" id="au"><h3>Seller login</h3><p>Log in or create an account to list items.</p>
+<div class="fd"><label for="ae">Email</label><input id="ae" type="email" autocomplete="email"></div>
+<div class="fd" style="margin-top:12px"><label for="ap">Password (min 6 characters)</label><input id="ap" type="password" autocomplete="current-password"></div>
+<button class="btn" id="li" type="button">Log in</button><button class="btn alt" id="su" type="button">Create account</button><div class="msg" id="am" role="status"></div></div>
+<div class="fc" id="lw" hidden><div class="who"><span id="wm"></span><button id="lo" type="button">Log out</button></div><h3>List an item</h3><p>A few details so buyers know what they’re getting.</p>
 <form id="lf"><div class="fg">
 <div class="fd full"><label for="n">Item name *</label><input id="n" required placeholder="e.g. Blue denim jacket"></div>
 <div class="fd"><label for="c">Category *</label><select id="c" required><option value="">Choose</option><option>Tops</option><option>Bottoms</option><option>Dresses</option><option>Outerwear</option><option>Shoes</option><option>Accessories</option></select></div>
 <div class="fd"><label for="s">Size *</label><select id="s" required><option value="">Choose</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>Free size</option><option>UK 5</option><option>UK 6</option><option>UK 7</option><option>UK 8</option><option>Other</option></select></div>
 <div class="fd"><label for="k">Condition *</label><select id="k" required><option value="">Choose</option><option>Like new</option><option>Excellent</option><option>Good</option><option>Fair</option></select></div>
 <div class="fd"><label for="p">Price (₹) *</label><input id="p" type="number" min="1" required placeholder="499"></div>
-<div class="fd full"><label for="u">Photo URL (optional)</label><input id="u" type="url" placeholder="Paste a public image link"></div>
+<div class="fd full"><label for="u">Photo (max 5 MB)</label><input id="u" type="file" accept="image/*"></div>
 <div class="fd full"><label for="d">Description</label><textarea id="d" placeholder="Colour, brand, fit, any flaws…"></textarea></div>
 <div class="fd"><label for="sn">Your name *</label><input id="sn" required></div>
-<div class="fd"><label for="se">Contact email *</label><input id="se" type="email" required placeholder="you@example.com"></div>
-</div><button class="btn" type="submit">Publish my listing &#8599;</button>
-<div class="hint">Demo: listings are saved in this browser only.</div></form></div></div></aside>
+<div class="fd"><label for="se">Contact email *</label><input id="se" type="email" required></div>
+</div><button class="btn" id="pb" type="submit">Publish my listing &#8599;</button><div class="msg" id="fm" role="status"></div></form>
+<div class="od"><h4>Orders for your items</h4><div id="ol">No orders yet.</div></div></div>
+</aside>
 <main>
 <div class="w hero">
 <div>
@@ -170,8 +185,11 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <section style="padding-top:0"><div class="w"><div class="cta"><div class="eb" style="color:#A9B896">Your closet, reimagined</div><h2>Got clothes to pass on?</h2><p>List a piece in a minute. You set the price, buyers get in touch directly.</p><a class="btn" href="#sell" data-s>List your clothes &#8599;</a></div></div></section>
 </main>
 <footer><div class="w ft"><div><a class="brand" href="#"><span class="mark">RE</span>Rewear Esthétique</a><p style="margin:12px 0 0">Wear better. Waste less. © 2026</p></div><nav class="fl2" aria-label="Footer"><a href="#browse">Shop</a><a href="#why">Why Rewear</a><a href="#sell" data-s>Sell an item</a><a href="#">Back to top</a></nav></div></footer>
-<div class="mb" id="mb"><div class="md" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="x" aria-label="Close" onclick="cm()">&times;</button><h3 id="mt"></h3><p id="mx"></p><a class="btn" id="cs" href="#">Contact seller</a></div></div>
+<div class="mb" id="mb"><div class="md" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="x" aria-label="Close" onclick="cm()">&times;</button><h3 id="mt"></h3><p id="mx"></p><a class="btn" id="cs" href="#">Contact seller</a>
+<button class="btn alt" id="bb" type="button">Order · cash on delivery</button>
+<form id="of" hidden><div class="fd"><label for="on">Your name</label><input id="on" required></div><div class="fd"><label for="op">Phone</label><input id="op" type="tel" required></div><div class="fd"><label for="oa">Delivery address</label><textarea id="oa" required></textarea></div><button class="btn" type="submit">Place order</button><div class="msg" id="om" role="status"></div></form></div></div>
 <div class="ts" id="ts" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
 const S=[
 {name:'Classic denim jacket',photo:'https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=700&q=80',category:'Outerwear',size:'M',condition:'Excellent',price:799,seller:'Aarav',contact:'hello@example.com',description:'A timeless denim layer in excellent condition.'},
@@ -184,39 +202,82 @@ const S=[
 {name:'Straight fit blue jeans',photo:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80',category:'Bottoms',size:'M',condition:'Excellent',price:699,seller:'Arjun',contact:'hello@example.com',description:'Classic straight-fit jeans.'}];
 const CATS=['All','Tops','Bottoms','Dresses','Outerwear','Shoes','Accessories'];
 const COL={Tops:'#C5D1B3',Bottoms:'#DDD6C8',Dresses:'#E6E0D4',Outerwear:'#CFC8BA',Shoes:'#D8D2C6',Accessories:'#E2DCCF'};
-let act='All',cur=[],saved=[];
+const SB_URL='https://pzpoiksqildwmxguhsjh.supabase.co',SB_KEY='sb_publishable_LpFzHPDm4IyMgRm7lW3zxw_3AinQLm7';
+let act='All',cur=[],ALL=[],demo=false,sel=null,user=null,db=null;
+try{db=window.supabase?window.supabase.createClient(SB_URL,SB_KEY):null}catch(e){db=null}
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function mine(){try{return JSON.parse(localStorage.getItem('esthetiqueListings')||'[]')}catch(e){return[]}}
+function toast(m){const t=$('ts');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
 function bf(){$('fl').innerHTML=CATS.map(c=>`<button class="f${c===act?' on':''}" data-c="${c}">${c}</button>`).join('')}
+const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description});
+async function load(){
+ALL=S;demo=true;
+if(db){try{const {data,error}=await db.from('listings').select('*').eq('status','available').order('created_at',{ascending:false});
+if(!error&&data&&data.length){ALL=data.map(norm);demo=false}}catch(e){}}
+render()}
 function render(){
 const q=$('q').value.toLowerCase();
-cur=[...mine(),...S].filter(x=>(act==='All'||x.category===act)&&`${x.name} ${x.category} ${x.size} ${x.description||''}`.toLowerCase().includes(q));
-$('g').innerHTML=cur.length?cur.map((x,i)=>`<article class="p"><div class="ph" style="background:${COL[x.category]||'#C6FF3D'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span><button class="hr" aria-label="Save item" data-h="${i}">&#9825;</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · Size ${esc(x.size)}</div><div class="pr"><b>₹${Number(x.price).toLocaleString('en-IN')}</b><button class="btn sm" data-v="${i}">View</button></div><div class="sl">Listed by ${esc(x.seller)}</div></div></article>`).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>'}
+cur=ALL.filter(x=>(act==='All'||x.category===act)&&`${x.name} ${x.category} ${x.size} ${x.description||''}`.toLowerCase().includes(q));
+$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map((x,i)=>`<article class="p"><div class="ph" style="background:${COL[x.category]||'#C5D1B3'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span><button class="hr" aria-label="Save item" data-h="${i}">&#9825;</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · Size ${esc(x.size)}</div><div class="pr"><b>₹${Number(x.price).toLocaleString('en-IN')}</b><button class="btn sm" data-v="${i}">View</button></div><div class="sl">Listed by ${esc(x.seller)}</div></div></article>`).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
 $('fl').addEventListener('click',e=>{const c=e.target.dataset.c;if(!c)return;act=c;bf();render()});
 $('q').addEventListener('input',render);
 $('g').addEventListener('click',e=>{
 const h=e.target.closest('[data-h]');if(h){h.innerHTML=h.innerHTML==='♡'?'♥':'♡';return}
-const v=e.target.closest('[data-v]');if(!v)return;const x=cur[+v.dataset.v];
+const v=e.target.closest('[data-v]');if(!v)return;const x=sel=cur[+v.dataset.v];
 $('mt').textContent=x.name;$('mx').textContent=`₹${Number(x.price).toLocaleString('en-IN')} · ${x.condition} · Size ${x.size}. ${x.description||''} Seller: ${x.seller}.`;
 $('cs').href=`mailto:${encodeURIComponent(x.contact)}?subject=${encodeURIComponent('Interested in '+x.name)}&body=${encodeURIComponent('Hi '+x.seller+', is '+x.name+' still available?')}`;
+$('bb').hidden=!x.id||demo;$('of').hidden=true;$('om').textContent='';
 $('mb').classList.add('on')});
 function cm(){$('mb').classList.remove('on')}
 $('mb').addEventListener('click',e=>{if(e.target.id==='mb')cm()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')cm()});
-$('lf').addEventListener('submit',e=>{e.preventDefault();
-const it={name:$('n').value.trim(),category:$('c').value,size:$('s').value,condition:$('k').value,price:Number($('p').value),photo:$('u').value.trim(),description:$('d').value.trim(),seller:$('sn').value.trim(),contact:$('se').value.trim()};
-const a=mine();a.unshift(it);try{localStorage.setItem('esthetiqueListings',JSON.stringify(a))}catch(x){S.unshift(it)}
-e.target.reset();ca();act='All';$('q').value='';bf();render();$('browse').scrollIntoView({behavior:'smooth'});
-const t=$('ts');t.textContent='Your item is live!';t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2600)});
-const dr=$('dr'),sd=$('sd'),db=$('db'),mn=$('mn');
-function tg(el,o,f){el.classList.toggle('on',o);el.setAttribute('aria-hidden',!o);db.classList.toggle('on',o);if(el===dr)mn.setAttribute('aria-expanded',o);if(o)(f||el.querySelector('.x')).focus()}
+$('bb').addEventListener('click',()=>{$('bb').hidden=true;$('of').hidden=false;$('on').focus()});
+$('of').addEventListener('submit',async e=>{e.preventDefault();
+const {error}=await db.from('orders').insert({listing_id:sel.id,buyer_name:$('on').value.trim(),buyer_phone:$('op').value.trim(),buyer_address:$('oa').value.trim(),payment_method:'cod',payment_status:'pending'});
+if(error){$('om').textContent='Could not place the order. Please try again.';return}
+e.target.reset();cm();toast('Order placed! The seller will contact you.')});
+
+/* auth */
+function am(t){$('am').textContent=t}
+function upd(){$('au').hidden=!!user;$('lw').hidden=!user;if(user){$('wm').textContent='Signed in as '+user.email;$('se').value=$('se').value||user.email;orders()}}
+async function orders(){
+const {data,error}=await db.from('orders').select('*, listings(name)').order('created_at',{ascending:false});
+$('ol').innerHTML=error||!data||!data.length?'No orders yet.':data.map(o=>`<div><b>${esc(o.listings&&o.listings.name)}</b><br>${esc(o.buyer_name)} · ${esc(o.buyer_phone)}<br>${esc(o.buyer_address)}<br>Cash on delivery · ${esc(o.payment_status)}</div>`).join('')}
+async function auth(kind){
+if(!db){am('Could not reach the server.');return}
+const email=$('ae').value.trim(),password=$('ap').value;
+if(!email||password.length<6){am('Enter your email and a password of at least 6 characters.');return}
+am('Please wait…');
+const r=kind==='in'?await db.auth.signInWithPassword({email,password}):await db.auth.signUp({email,password});
+if(r.error){am(r.error.message);return}
+if(!r.data.session){am('Account created. Check your email to confirm, then log in.');return}
+am('')}
+$('li').addEventListener('click',()=>auth('in'));$('su').addEventListener('click',()=>auth('up'));
+$('lo').addEventListener('click',()=>db.auth.signOut());
+if(db){db.auth.getSession().then(({data})=>{user=data.session?data.session.user:null;upd()});db.auth.onAuthStateChange((_e,ses)=>{user=ses?ses.user:null;upd()})}
+
+/* listing */
+$('lf').addEventListener('submit',async e=>{e.preventDefault();
+if(!user)return;const b=$('pb'),fm=$('fm');b.disabled=true;fm.textContent='Publishing…';
+try{
+let photo_url=null;const f=$('u').files[0];
+if(f){if(!f.type.startsWith('image/')||f.size>5*1024*1024)throw new Error('Photo must be an image under 5 MB.');
+const path=`${user.id}/${Date.now()}-${f.name.replace(/[^a-z0-9._-]/gi,'_')}`;
+const up=await db.storage.from('listing-photos').upload(path,f,{contentType:f.type});if(up.error)throw up.error;
+photo_url=db.storage.from('listing-photos').getPublicUrl(path).data.publicUrl}
+const {error}=await db.from('listings').insert({name:$('n').value.trim(),category:$('c').value,size:$('s').value,condition:$('k').value,price:Number($('p').value),description:$('d').value.trim(),photo_url,seller_name:$('sn').value.trim(),contact:$('se').value.trim()});
+if(error)throw error;
+e.target.reset();$('se').value=user.email;fm.textContent='';ca();act='All';$('q').value='';bf();await load();$('browse').scrollIntoView({behavior:'smooth'});toast('Your item is live!')
+}catch(x){fm.textContent=x.message||'Something went wrong. Please try again.'}
+b.disabled=false});
+const dr=$('dr'),sd=$('sd'),bd=$('db'),mn=$('mn');
+function tg(el,o,f){el.classList.toggle('on',o);el.setAttribute('aria-hidden',!o);bd.classList.toggle('on',o);if(el===dr)mn.setAttribute('aria-expanded',o);if(o)(f||el.querySelector('.x')).focus()}
 function ca(){if(dr.classList.contains('on'))tg(dr,false);if(sd.classList.contains('on'))tg(sd,false)}
-mn.addEventListener('click',()=>tg(dr,true));$('dx').addEventListener('click',()=>{tg(dr,false);mn.focus()});$('sx').addEventListener('click',ca);db.addEventListener('click',ca);
+mn.addEventListener('click',()=>tg(dr,true));$('dx').addEventListener('click',()=>{tg(dr,false);mn.focus()});$('sx').addEventListener('click',ca);bd.addEventListener('click',ca);
 dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tg(dr,false)));
 document.querySelectorAll('[data-s]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();ca();tg(sd,true,$('n'))}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')ca()});
-bf();render();
+bf();load();
 </script>
 </body>
 </html>
