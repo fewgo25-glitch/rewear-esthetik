@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Rewear Esthétique: buy and sell pre-loved fashion. Wear better, waste less.">
 <title>Rewear Esthétique – Thrift it. Flex it. Repeat.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://pzpoiksqildwmxguhsjh.supabase.co">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F6F2EB;--card:#FFFFFF;--ink:#22201C;--mut:#6B655C;--lime:#A9B896;--lil:#E9E3D7;--pink:#E9E3D7;--line:#E4DDD1;--acc:#5F7352;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#0D0F0E;--card:#171A18;--ink:#F4F1E8;--mut:#A9A69C;--lime:#10B981;--lil:#171A18;--pink:#171A18;--line:#272B28;--acc:#34D399;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*:before,*:after{box-sizing:inherit}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
@@ -16,7 +17,7 @@ a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
 :focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .w{width:min(1200px,100% - 40px);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#F6F2EBee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:10;background:#0D0F0Eee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces';font-weight:600;font-size:20px}
 .mark{width:40px;height:40px;border-radius:12px;background:var(--lime);color:#22201C;display:grid;place-items:center;transform:rotate(-6deg)}
@@ -88,7 +89,7 @@ h2{font-weight:600;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-
 .hint{font-size:12px;color:#3D443E;margin-top:12px}
 .hw{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
 .hc{background:var(--card);border-radius:22px;padding:26px;border:2px solid var(--line)}
-.hc b{font:600 54px 'Fraunces'}.hc b{color:#5F7352}
+.hc b{font:600 54px 'Fraunces'}.hc b{color:#0F7A55}
 .hc h3{font-size:24px;margin:8px 0}.hc p{margin:0;color:var(--mut);line-height:1.6}
 footer{border-top:1px solid var(--line);padding:32px 0}
 .ft{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--mut);font-size:14px}
@@ -130,30 +131,82 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 .dp{position:relative;min-height:460px;display:grid;place-items:center;overflow:hidden}.dp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .dp i{font:600 64px 'Fraunces',serif;font-style:normal;color:#22201C26;text-transform:uppercase}
 .dd{padding:44px 32px 32px;display:flex;flex-direction:column;gap:10px;min-width:0}.dd h3{font-size:34px;line-height:1.1;margin:0}.dd h4{margin:14px 0 0;font:600 18px 'Fraunces',serif}.dd p{margin:0}
-.dpr{font:600 38px 'Fraunces',serif;color:#5F7352}
+.dpr{font:600 38px 'Fraunces',serif;color:#0F7A55}
 .dl{margin:8px 0 0;display:grid}.dl div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #22201C22;font-size:14px}.dl dt{color:#6B655C}.dl dd{margin:0;font-weight:700;text-align:right}
 .p{cursor:pointer}
 .th{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;z-index:2}.th button{width:56px;height:56px;border-radius:10px;border:2px solid #F6F2EB;padding:0;overflow:hidden;cursor:pointer;background:#fff;opacity:.85}.th button.on{border-color:#22201C;opacity:1}.th img{width:100%;height:100%;object-fit:cover;display:block}
 .mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px;margin-top:10px}.mi{border:2px solid #22201C22;border-radius:14px;padding:0;overflow:hidden;cursor:pointer;background:#fff;text-align:left;font:inherit;color:#22201C}.mi:hover{border-color:#22201C}.mi div{height:84px;position:relative;display:grid;place-items:center;font:600 12px 'Fraunces',serif;color:#22201C66}.mi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.mi span{display:block;padding:6px 8px;font-size:13px;font-weight:700}
+header .nav{min-height:56px}
+.ic{display:flex;gap:4px}.ic button{position:relative;width:44px;height:44px;border:0;background:none;color:var(--ink);cursor:pointer;border-radius:50%;display:grid;place-items:center}.ic button:hover{background:#22201C12}
+.ic b{position:absolute;top:3px;right:1px;min-width:17px;height:17px;border-radius:9px;background:#0F7A55;color:#fff;font-size:10px;display:grid;place-items:center;padding:0 4px}.ic b:empty{display:none}
+.btn{background:#22201C;color:#F6F2EB;border-color:#22201C;box-shadow:none}.btn:hover{background:#0F7A55;border-color:#0F7A55;transform:none}.btn.alt{background:transparent;color:#22201C}.btn.alt:hover{color:#F6F2EB}
+.hero{padding:72px 0 64px}.hero h1{font-size:clamp(44px,7.5vw,88px);margin:0 0 20px}
+section.shop{--card:#171A18;--ink:#F4F1E8;--mut:#A9A69C;--line:#272B28;--acc:#34D399;background:#0D0F0E;color:#F4F1E8;padding:56px 0 80px}
+.shop .head{margin-bottom:20px}.shop h2{margin:0}
+.sb{position:relative;flex:1;min-width:240px}.sb svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#A9A69C}
+.shop .bar{align-items:center;gap:14px;margin-bottom:32px}.shop .bar input{width:100%;min-height:48px;padding:0 18px 0 46px;border-radius:999px;border:1px solid #272B28;background:#171A18;color:#F4F1E8}
+.shop .bar input:focus{border-color:#34D399;outline:none}
+.shop .fl{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none}.shop .f{min-height:34px;padding:0 14px;font-size:13px;border-width:1px;white-space:nowrap;color:#F4F1E8}
+.shop .f.on,.shop .f:hover{background:#34D399;border-color:#34D399;color:#0D0F0E}
+.grid{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:32px 22px}
+.p{border:1px solid #272B28;border-radius:16px;background:#171A18}.p:hover{transform:translateY(-3px);border-color:#34D399}
+.ph{height:auto;aspect-ratio:4/5}.cd{left:8px;top:8px;font-size:9px;padding:4px 8px;background:#0D0F0Ecc;color:#F4F1E8;letter-spacing:.06em}
+.hr{right:6px;top:6px;width:36px;height:36px;font-size:0;background:#0D0F0Ebf;color:#F4F1E8;display:grid;place-items:center}.hr.on{color:#34D399}
+.pi{padding:12px 14px 14px}.pi h3{font-size:15px;font-weight:500;font-family:'DM Sans',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.m{font-size:12px}
+.shop .pr b{font:600 18px 'Fraunces',serif;color:#34D399}.pr{margin-top:8px}
+.bg{width:36px;height:36px;border-radius:50%;border:1px solid #34D399;background:transparent;color:#34D399;cursor:pointer;display:grid;place-items:center}.bg:hover{background:#34D399;color:#0D0F0E}
+.back{display:inline-block;margin:28px 0 20px;font-weight:700;font-size:14px;color:var(--ink)}.back:hover{color:#0F7A55}
+#pv{padding:0 0 72px}#pv .dg{gap:40px}#pv .dp{min-height:0;aspect-ratio:4/5;border-radius:22px}#pv .dd{padding:0}#pv .dd h3{margin:0}
+.ac{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 8px}.ac .btn{width:auto}
+.rw{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #22201C1a;font-size:14px}.tn{width:56px;height:70px;border-radius:10px;position:relative;overflow:hidden;display:block}.tn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tot{display:flex;justify-content:space-between;font-weight:700;padding:14px 0}.fc ol{padding-left:18px;line-height:1.7;margin:6px 0 12px}.fc h4{margin:18px 0 4px;font:600 18px 'Fraunces',serif}
+footer{background:#0D0F0E;color:#F4F1E8;border-top:1px solid #272B28;padding:52px 0 28px}
+.f3{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}.f3 h4{margin:0 0 14px;font:600 13px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#34D399}
+.f3 nav a,.f3 #fc2 div{display:block;padding:6px 0;font-size:15px;color:#CFCBC0}.f3 nav a:hover,.f3 #fc2 a:hover{color:#34D399}.ftag{color:#A9A69C;margin:12px 0 0;max-width:280px;line-height:1.6}
+.fb{margin-top:40px;padding-top:20px;border-top:1px solid #272B28;font-size:13px;color:#A9A69C}
+header{background:#0D0F0Eee}.ic b{background:#10B981;color:#0D0F0E}.ic button:hover{background:#ffffff14}
+h1 span{color:#34D399}
+.btn{background:#10B981;color:#0D0F0E;border-color:#10B981}.btn:hover{background:#34D399;border-color:#34D399}
+.btn.alt{background:transparent;color:#F4F1E8;border-color:#3A403C}.btn.alt:hover{background:#F4F1E8;color:#0D0F0E;border-color:#F4F1E8}
+.hero p,.dd p{color:#A9A69C}.back{color:#F4F1E8}.back:hover{color:#34D399}
+.dpr{color:#34D399}.dl dt{color:#A9A69C}.dl div{border-color:#272B28}
+.mi{background:#171A18;border-color:#272B28;color:#F4F1E8}.mi:hover{border-color:#34D399}.mi div{color:#F4F1E866}
+.dp i,.ph i{color:#F4F1E824}
+.fd input,.fd select,.fd textarea{background:#171A18;color:#F4F1E8;border:1px solid #2F3532}.fd input:focus,.fd select:focus,.fd textarea:focus{border-color:#34D399;outline:none}
+.dr{background:#0D0F0E;color:#F4F1E8;border-left-color:#272B28}.x{background:#171A18;color:#F4F1E8}
+.dr .fc>p,.msg,.who,.hint{color:#A9A69C}
+.dr .fc .btn{background:#10B981;color:#0D0F0E;border-color:#10B981}.dr .fc .btn:hover{background:#34D399}
+.dr .fc .btn.alt{background:transparent;color:#F4F1E8;border-color:#3A403C}.dr .fc .btn.alt:hover{background:#F4F1E8;color:#0D0F0E}
+.ab{border-color:#3A403C;color:#F4F1E8}.ab:hover{background:#F4F1E8;color:#0D0F0E}
+.od{border-color:#272B28}.od div{color:#F4F1E8;border-color:#272B28}.rw{border-bottom-color:#272B28}.db{background:#000a}.ts{background:#10B981;color:#0D0F0E}
+section.shop{border-top:1px solid #272B28}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 18px;scrollbar-width:none}.tabs button{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #272B28;background:transparent;color:#F4F1E8;font-weight:700;font-size:13px;white-space:nowrap;cursor:pointer}.tabs button.on{background:#10B981;border-color:#10B981;color:#0D0F0E}
+.row2{padding:12px 0;border-bottom:1px solid #272B28;font-size:14px;line-height:1.55}.bdg{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#34D399}
+.trk{display:flex;gap:6px;margin-top:8px}.trk span{flex:1;font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding-top:6px;border-top:3px solid #272B28;color:#A9A69C}.trk span.on{border-color:#34D399;color:#F4F1E8}
+.so{min-height:40px;margin-top:8px;border-radius:10px;background:#171A18;color:#F4F1E8;border:1px solid #2F3532;padding:0 10px}
+.flt{display:flex;gap:10px;flex-wrap:wrap;margin:-16px 0 28px}.flt select{min-height:36px;border-radius:999px;background:#171A18;color:#F4F1E8;border:1px solid #272B28;padding:0 14px;font-size:13px}
+.sr{font-size:14px;color:#A9A69C}.rv1{padding:10px 0;border-bottom:1px solid #272B28;font-size:14px;line-height:1.5}.rv1 b{color:#34D399;letter-spacing:.05em}
+.th{top:12px;bottom:auto}.dp video,.dp model-viewer{position:absolute;inset:0;width:100%;height:100%;background:#0D0F0E;object-fit:contain}
+.th .mt{display:grid;place-items:center;width:100%;height:100%;background:#0D0F0E;color:#34D399;font:700 13px 'DM Sans',sans-serif}
+.md2{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:700;padding:4px 8px;border-radius:999px;background:#0D0F0Ecc;color:#34D399}
 @media(max-width:700px){.dg{grid-template-columns:1fr}.dp{min-height:300px}.dd{padding:24px 20px 24px}.dd h3{font-size:28px}}
-@media(max-width:700px){.links{display:none}.fg{grid-template-columns:1fr}.fd.full{grid-column:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ph{height:160px}.pi h3{font-size:15px}.pr b{font-size:20px}.art{min-height:440px}.fc{padding:20px}}
+@media(max-width:700px){.links{display:none}.fg{grid-template-columns:1fr}.fd.full{grid-column:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.f3{grid-template-columns:1fr;gap:28px}#pv .dg{gap:24px}.shop .bar{flex-direction:column;align-items:stretch}.sb{min-width:0}.pi h3{font-size:15px}.pr b{font-size:20px}.art{min-height:440px}.fc{padding:20px}}
 </style>
 </head>
 <body>
 <header><div class="w nav">
 <a class="brand" href="#"><span class="mark">RE</span>Rewear Esthétique</a>
-<button class="mn" id="mn" aria-label="Open menu" aria-expanded="false" aria-controls="dr"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg></button>
+<div class="ic"><button id="acc" type="button" aria-label="Account"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/></svg></button><button id="wb" type="button" aria-label="Wishlist"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.4-7 10-7 10z"/></svg><b id="wn"></b></button><button id="cb" type="button" aria-label="Bag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></svg><b id="cn"></b></button></div>
 </div></header>
 <div class="db" id="db"></div>
-<aside class="dr" id="dr" aria-label="Menu" aria-hidden="true"><button class="x" id="dx" aria-label="Close menu">&times;</button>
-<nav><a href="#browse">Shop</a><a href="#sell" data-s>Sell</a></nav>
-<a class="btn" href="#sell" data-s>+ Sell an item</a></aside>
-<aside class="dr sd" id="sd" aria-label="List an item" aria-hidden="true"><button class="x" id="sx" aria-label="Close">&times;</button><div class="sdi">
-<div class="fc" id="au"><h3>Seller login</h3><p>Log in or create an account to list items.</p>
+
+<aside class="dr sd" id="sd" aria-label="Account" aria-hidden="true"><button class="x" id="sx" aria-label="Close">&times;</button><div class="sdi">
+<div class="fc" id="au"><h3>Your account</h3><p>Log in or create an account to sell, track orders and manage your listings.</p>
 <div class="fd"><label for="ae">Email</label><input id="ae" type="email" autocomplete="email"></div>
 <div class="fd" style="margin-top:12px"><label for="ap">Password (min 6 characters)</label><input id="ap" type="password" autocomplete="current-password"></div>
 <button class="btn" id="li" type="button">Log in</button><button class="btn alt" id="su" type="button">Create account</button><div class="msg" id="am" role="status"></div></div>
-<div class="fc" id="lw" hidden><div class="who"><span id="wm"></span><button id="lo" type="button">Log out</button></div><h3>List an item</h3><p>A few details so buyers know what they’re getting.</p>
+<div class="fc" id="lw" hidden><div class="who"><span id="wm"></span><button id="lo" type="button">Log out</button></div><div class="tabs" id="tb"><button type="button" data-tab="sell" class="on">Sell</button><button type="button" data-tab="mine">My listings</button><button type="button" data-tab="ord">Orders</button><button type="button" data-tab="adm" id="tba" hidden>Admin</button></div>
+<div data-pane="sell"><h3 id="lt">List an item</h3><p>A few details so buyers know what they’re getting.</p>
 <form id="lf"><div class="fg">
 <div class="fd full"><label for="n">Item name *</label><input id="n" required placeholder="e.g. Blue denim jacket"></div>
 <div class="fd"><label for="c">Category *</label><select id="c" required><option value="">Choose</option><option>Tops</option><option>Bottoms</option><option>Dresses</option><option>Outerwear</option><option>Shoes</option><option>Accessories</option></select></div>
@@ -161,50 +214,42 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <div class="fd"><label for="k">Condition *</label><select id="k" required><option value="">Choose</option><option>Like new</option><option>Excellent</option><option>Good</option><option>Fair</option></select></div>
 <div class="fd"><label for="p">Price (₹) *</label><input id="p" type="number" min="1" required placeholder="499"></div>
 <div class="fd full"><label for="u">Photos (up to 4, max 5 MB each)</label><input id="u" type="file" accept="image/*" multiple></div>
+<div class="fd full"><label for="vd">Video (optional · MP4 or WebM · max 20 MB)</label><input id="vd" type="file" accept="video/mp4,video/webm,video/quicktime"></div>
+<div class="fd full"><label for="m3">3D model (optional · .glb file · max 20 MB)</label><input id="m3" type="file" accept=".glb,model/gltf-binary"></div>
 <div class="fd"><label for="br">Brand</label><input id="br" placeholder="e.g. Levi’s"></div><div class="fd"><label for="fa">Fabric</label><input id="fa" placeholder="e.g. Cotton"></div>
 <div class="fd full"><label for="d">Description</label><textarea id="d" placeholder="Colour, brand, fit, any flaws…"></textarea></div>
 <div class="fd"><label for="sn">Your name *</label><input id="sn" required></div>
 <div class="fd"><label for="se">Contact email *</label><input id="se" type="email" required></div>
-</div><button class="btn" id="pb" type="submit">Publish my listing &#8599;</button><div class="msg" id="fm" role="status"></div></form>
-<div class="od" id="ad" hidden><h4>Admin: all listings</h4><div id="al">Loading…</div></div>
-<div class="od"><h4>Orders for your items</h4><div id="ol">No orders yet.</div></div></div>
-</aside>
-<main>
-<div class="w hero">
-<div>
-<span class="tag">PRE-LOVED. RE-LOVED. REWORN.</span>
-<h1>Thrift it.<br><span>Flex it.</span><br>Repeat.</h1>
-<p>Streetwear, vintage and y2k finds from real people. Cheaper than fast fashion, cooler than the mall, zero guilt.</p>
-<div class="row"><a class="btn" href="#browse">Shop the drop &#8599;</a><a class="btn ghost" href="#sell" data-s>Sell your closet</a></div>
-</div>
-</div>
-<div class="mq" aria-hidden="true"><div>
-<b>PRE-LOVED &#10033; BUDGET FRIENDLY &#10033; PLANET KIND &#10033; STYLE DESERVES A SECOND LIFE &#10033; PRE-LOVED &#10033; BUDGET FRIENDLY &#10033; PLANET KIND &#10033;</b>
-<b>PRE-LOVED &#10033; BUDGET FRIENDLY &#10033; PLANET KIND &#10033; STYLE DESERVES A SECOND LIFE &#10033; PRE-LOVED &#10033; BUDGET FRIENDLY &#10033; PLANET KIND &#10033;</b>
+</div><button class="btn" id="pb" type="submit">Publish my listing &#8599;</button><button class="btn alt" id="ce" type="button" hidden>Cancel editing</button><div class="msg" id="fm" role="status"></div></form></div>
+<div data-pane="mine" hidden><h3>My listings</h3><div id="ml">Loading…</div></div>
+<div data-pane="ord" hidden><h3>My orders</h3><div id="mo2">Loading…</div><div class="od"><h4>Orders for your items</h4><div id="ol">No orders yet.</div></div></div>
+<div data-pane="adm" hidden><h3>Admin: all listings</h3><div id="al">Loading…</div></div>
 </div></div>
-
-<section id="browse"><div class="w">
-<div class="head"><div><div class="eb">Fresh drops</div><h2>Find your next fave.</h2><p>Pieces listed by our community, updated all the time.</p></div></div>
-<div class="bar"><input id="q" type="search" aria-label="Search items" placeholder="Search jeans, jackets, dresses…"><div class="fl" id="fl"></div></div>
+</aside>
+<aside class="dr sd" id="wl" aria-label="Wishlist" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>Wishlist</h3><div id="wlb">Nothing saved yet.</div></div></div></aside>
+<aside class="dr sd" id="ct" aria-label="Bag" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>Your bag</h3><div id="cbl">Your bag is empty.</div><div class="tot" id="ctt" hidden><span>Total</span><span id="ctv"></span></div>
+<form id="cf" hidden><div class="fd" style="margin-top:12px"><label for="cbn">Your name</label><input id="cbn"  required></div><div class="fd" style="margin-top:12px"><label for="cbp">Phone</label><input id="cbp" type="tel" required></div><div class="fd" style="margin-top:12px"><label for="cba">Delivery address</label><textarea id="cba" required></textarea></div><p class="hint" id="ch"></p><button class="btn" type="submit">Place order · cash on delivery</button><div class="msg" id="cm2" role="status"></div></form></div></div></aside>
+<aside class="dr sd" id="hw" aria-label="How it works" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>How it works</h3><h4>Buying</h4><ol><li>Browse the collection and save your favourites.</li><li>Add pieces to your bag and order with cash on delivery.</li><li>The seller contacts you to arrange delivery.</li></ol><h4>Selling</h4><ol><li>Create a free seller account.</li><li>List your piece with photos and a price.</li><li>It goes live after a quick review.</li></ol></div></div></aside>
+<main>
+<div id="home">
+<div class="w hero"><h1>Thrift it.<br><span>Flex it.</span><br>Repeat.</h1><p>Pre-loved fashion, curated by the community.</p><div class="row"><a class="btn" href="#browse">Shop the collection</a></div></div>
+<section id="browse" class="shop"><div class="w">
+<div class="head"><div><h2>The collection</h2></div></div>
+<div class="bar"><div class="sb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" aria-label="Search items" placeholder="Search the collection"></div><div class="fl" id="fl"></div></div>
+<div class="flt"><select id="fs" aria-label="Size"><option value="">All sizes</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>Free size</option><option>UK 5</option><option>UK 6</option><option>UK 7</option><option>UK 8</option><option>Other</option></select><select id="fk2" aria-label="Condition"><option value="">Any condition</option><option>Like new</option><option>Excellent</option><option>Good</option><option>Fair</option></select><select id="fo" aria-label="Sort"><option value="">Newest first</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></div>
 <div class="grid" id="g"></div>
 </div></section>
-<section id="why"><div class="w">
-<div class="head"><div><div class="eb">Why Rewear</div><h2>Good for you. Good for the planet.</h2></div></div>
-<div class="why">
-<div class="wc"><h3>Pre-loved</h3><p>Unique pieces with stories you won’t find on a rack.</p></div>
-<div class="wc"><h3>Budget friendly</h3><p>Style for less, so you can switch up your look more often.</p></div>
-<div class="wc"><h3>Planet kind</h3><p>Every piece that stays in use is one less in landfill.</p></div>
-</div></div></section>
-<section style="padding-top:0"><div class="w"><div class="cta"><div class="eb" style="color:#A9B896">Your closet, reimagined</div><h2>Got clothes to pass on?</h2><p>List a piece in a minute. You set the price, buyers get in touch directly.</p><a class="btn" href="#sell" data-s>List your clothes &#8599;</a></div></div></section>
-</main>
-<footer><div class="w ft"><div><a class="brand" href="#"><span class="mark">RE</span>Rewear Esthétique</a><p style="margin:12px 0 0">Wear better. Waste less. © 2026</p></div><nav class="fl2" aria-label="Footer"><a href="#browse">Shop</a><a href="#why">Why Rewear</a><a href="#sell" data-s>Sell an item</a><a href="#">Back to top</a></nav></div></footer>
-<div class="mb" id="mb"><div class="md dt" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="x" aria-label="Close" onclick="cm()">&times;</button>
+</div>
+<section id="pv" hidden><div class="w"><a class="back" href="#browse">&larr; Back to collection</a>
 <div class="dg"><div class="dp" id="dp"><i id="di"></i><img id="dm" alt="" hidden><div class="th" id="th"></div></div>
-<div class="dd"><div class="eb" id="dc"></div><h3 id="mt"></h3><div class="dpr" id="dpr"></div>
+<div class="dd"><div class="eb" id="dc"></div><h3 id="mt"></h3><div class="sr" id="sr"></div><div class="dpr" id="dpr"></div>
 <dl class="dl" id="dl"></dl><h4>About this piece</h4><p id="mx"></p>
-<a class="btn" id="cs" href="#">Contact seller</a>
-<button class="btn alt" id="bb" type="button">Order · cash on delivery</button>
-<form id="of" hidden><div class="fd"><label for="on">Your name</label><input id="on" required></div><div class="fd"><label for="op">Phone</label><input id="op" type="tel" required></div><div class="fd"><label for="oa">Delivery address</label><textarea id="oa" required></textarea></div><button class="btn" type="submit">Place order</button><div class="msg" id="om" role="status"></div></form><div id="mo" hidden><h4 id="mh"></h4><div class="mg" id="mg"></div></div></div></div></div></div>
+<div class="ac"><button class="btn" id="ab" type="button"></button><button class="btn alt" id="pw" type="button"></button><a class="btn alt" id="cs" href="#">Contact seller</a></div>
+<div id="rv" hidden></div><div id="mo" hidden><h4 id="mh"></h4><div class="mg" id="mg"></div></div></div></div></div></section>
+</main>
+<footer><div class="w"><div class="f3"><div><a class="brand" href="#"><span class="mark">RE</span>Rewear Esthétique</a><p class="ftag">Pre-loved fashion, given a second life.</p></div>
+<nav aria-label="Footer"><h4>Explore</h4><a href="#browse">Browse Clothes</a><a href="#how" data-p="hw">How It Works</a><a href="#sell" data-s>Sell With Us</a><a href="#sell" data-s>Sell an Item</a></nav>
+<div id="fct" hidden><h4>Contact</h4><div id="fc2"></div></div></div><div class="fb">© 2026 Rewear Esthétique</div></div></footer>
 <div class="ts" id="ts" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
@@ -218,15 +263,21 @@ const S=[
 {name:'Soft knit sweater',photo:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80',category:'Tops',size:'L',condition:'Good',price:550,seller:'Ishita',contact:'hello@example.com',description:'Soft knit, gently worn.'},
 {name:'Straight fit blue jeans',photo:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80',category:'Bottoms',size:'M',condition:'Excellent',price:699,seller:'Arjun',contact:'hello@example.com',description:'Classic straight-fit jeans.'}];
 const CATS=['All','Tops','Bottoms','Dresses','Outerwear','Shoes','Accessories'];
-const COL={Tops:'#C5D1B3',Bottoms:'#DDD6C8',Dresses:'#E6E0D4',Outerwear:'#CFC8BA',Shoes:'#D8D2C6',Accessories:'#E2DCCF'};
+const COL={Tops:'#1E3A2F',Bottoms:'#262C29',Dresses:'#24362E',Outerwear:'#2C3330',Shoes:'#1F2E2A',Accessories:'#2A3530'};
 const SB_URL='https://pzpoiksqildwmxguhsjh.supabase.co',SB_KEY='sb_publishable_LpFzHPDm4IyMgRm7lW3zxw_3AinQLm7';
-let act='All',cur=[],ALL=[],demo=false,sel=null,user=null,db=null;
+const CONTACT={email:'',phone:'',address:''};
+S.forEach((x,i)=>x.id='sample-'+i);
+const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+let act='All',cur=[],ALL=[],demo=false,sel=null,user=null,db=null,wish=new Set(ls('rw_w',[])),bag=ls('rw_b',[]);
+const HS=f=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="${f?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.4-7 10-7 10z"/></svg>`;
+const BG='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></svg>';
+const money=n=>'₹'+Number(n).toLocaleString('en-IN');
 try{db=window.supabase?window.supabase.createClient(SB_URL,SB_KEY):null}catch(e){db=null}
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(m){const t=$('ts');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
 function bf(){$('fl').innerHTML=CATS.map(c=>`<button class="f${c===act?' on':''}" data-c="${c}">${c}</button>`).join('')}
-const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description,created:r.created_at,brand:r.brand,fabric:r.fabric,photos:r.photos&&r.photos.length?r.photos:(r.photo_url?[r.photo_url]:[]),sid:r.seller_id});
+const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description,created:r.created_at,brand:r.brand,fabric:r.fabric,photos:r.photos&&r.photos.length?r.photos:(r.photo_url?[r.photo_url]:[]),sid:r.seller_id,video:r.video_url,model:r.model_url});
 async function load(){
 ALL=S;demo=true;
 if(db){try{const {data,error}=await db.from('listings').select('*').eq('status','available').eq('approved',true).order('created_at',{ascending:false});
@@ -234,46 +285,108 @@ if(!error&&data&&data.length){ALL=data.map(norm);demo=false}}catch(e){}}
 render()}
 function render(){
 const q=$('q').value.toLowerCase();
-cur=ALL.filter(x=>(act==='All'||x.category===act)&&`${x.name} ${x.category} ${x.size} ${x.description||''}`.toLowerCase().includes(q));
-$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map((x,i)=>`<article class="p" data-v="${i}"><div class="ph" style="background:${COL[x.category]||'#C5D1B3'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span><button class="hr" aria-label="Save item" data-h="${i}">&#9825;</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · Size ${esc(x.size)}</div><div class="pr"><b>₹${Number(x.price).toLocaleString('en-IN')}</b><button class="btn sm" data-v="${i}">View</button></div></div></article>`).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
+cur=ALL.filter(x=>(act==='All'||x.category===act)&&(!$('fs').value||x.size===$('fs').value)&&(!$('fk2').value||x.condition===$('fk2').value)&&`${x.name} ${x.category} ${x.size} ${x.brand||''} ${x.description||''}`.toLowerCase().includes(q));
+const so=$('fo').value;if(so)cur=cur.slice().sort((a,b)=>so==='lo'?a.price-b.price:b.price-a.price);
+$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map(x=>{const id=esc(x.id),w=wish.has(String(x.id));return `<article class="p" data-v="${id}"><div class="ph" style="background:${COL[x.category]||'#1E3A2F'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span>${x.video||x.model?`<span class="md2">${x.model?'3D':''}${x.model&&x.video?' · ':''}${x.video?'&#9654; VIDEO':''}</span>`:''}<button class="hr${w?' on':''}" data-h="${id}" aria-label="${w?'Remove from':'Save to'} wishlist">${HS(w)}</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · ${esc(x.size)}</div><div class="pr"><b>${money(x.price)}</b>${demo?'':`<button class="bg" data-b="${id}" aria-label="Add to bag">${BG}</button>`}</div></div></article>`}).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
 $('fl').addEventListener('click',e=>{const c=e.target.dataset.c;if(!c)return;act=c;bf();render()});
-$('q').addEventListener('input',render);
+$('q').addEventListener('input',render);['fs','fk2','fo'].forEach(i=>$(i).addEventListener('change',render));
 $('g').addEventListener('click',e=>{
-const h=e.target.closest('[data-h]');if(h){h.innerHTML=h.innerHTML==='♡'?'♥':'♡';return}
-const v=e.target.closest('[data-v]');if(!v)return;show(cur[+v.dataset.v])});
+const h=e.target.closest('[data-h]');if(h){togWish(h.dataset.h);return}
+const b=e.target.closest('[data-b]');if(b){addBag(b.dataset.b);return}
+const v=e.target.closest('[data-v]');if(v)location.hash='#item-'+v.dataset.v});
+
+/* wishlist + bag */
+function sv(){try{localStorage.setItem('rw_w',JSON.stringify([...wish]));localStorage.setItem('rw_b',JSON.stringify(bag))}catch(e){}}
+function uc(){$('wn').textContent=wish.size||'';$('cn').textContent=bag.length||''}
+function togWish(id){wish.has(id)?wish.delete(id):wish.add(id);sv();uc();render();pb2()}
+function addBag(id){if(bag.includes(id)){toast('Already in your bag');return}bag.push(id);sv();uc();toast('Added to your bag');pb2()}
+function pb2(){const x=sel;if(!x)return;const id=String(x.id),w=wish.has(id);$('ab').hidden=demo;$('ab').textContent=bag.includes(id)?'In your bag ✓':'Add to bag';$('pw').innerHTML=HS(w)+' '+(w?'Saved':'Save')}
+$('ab').addEventListener('click',()=>{const id=String(sel.id);bag.includes(id)?openP('ct'):addBag(id)});
+$('pw').addEventListener('click',()=>togWish(String(sel.id)));
+function rw(){const it=ALL.filter(x=>wish.has(String(x.id)));
+$('wlb').innerHTML=it.length?it.map(x=>`<div class="rw"><a class="tn" href="#item-${esc(x.id)}" onclick="ca()" style="background:${COL[x.category]||'#1E3A2F'}">${x.photo?`<img src="${esc(x.photo)}" alt="" onerror="this.remove()">`:''}</a><div><b>${esc(x.name)}</b><br>${money(x.price)}</div><button class="ab" data-w="${esc(x.id)}">Remove</button></div>`).join(''):'Nothing saved yet.'}
+$('wlb').addEventListener('click',e=>{const b=e.target.closest('[data-w]');if(!b)return;wish.delete(b.dataset.w);sv();uc();rw();render();pb2()});
+function rc(){const it=ALL.filter(x=>bag.includes(String(x.id)));
+$('cbl').innerHTML=it.length?it.map(x=>`<div class="rw"><a class="tn" href="#item-${esc(x.id)}" onclick="ca()" style="background:${COL[x.category]||'#1E3A2F'}">${x.photo?`<img src="${esc(x.photo)}" alt="" onerror="this.remove()">`:''}</a><div><b>${esc(x.name)}</b><br>${money(x.price)}</div><button class="ab" data-r="${esc(x.id)}">Remove</button></div>`).join(''):'Your bag is empty.';
+$('ctt').hidden=$('cf').hidden=!it.length;$('ch').textContent=user?'This order will appear under Orders in your account.':'Tip: log in first to track this order from your account.';$('ctv').textContent=money(it.reduce((t,x)=>t+Number(x.price),0))}
+$('cbl').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(!b)return;bag=bag.filter(i=>i!==b.dataset.r);sv();uc();rc();pb2()});
+$('cf').addEventListener('submit',async e=>{e.preventDefault();
+const it=ALL.filter(x=>bag.includes(String(x.id)));if(!it.length||!db||demo)return;
+const rows=it.map(x=>({listing_id:x.id,buyer_name:$('cbn').value.trim(),buyer_phone:$('cbp').value.trim(),buyer_address:$('cba').value.trim(),payment_method:'cod',payment_status:'pending'}));
+const {error}=await db.from('orders').insert(rows);
+if(error){$('cm2').textContent='Could not place the order. Please try again.';return}
+bag=[];sv();uc();e.target.reset();$('cm2').textContent='';ca();toast('Order placed! Sellers will contact you.');pb2()});
+
+/* reviews */
+async function loadRv(x){const box=$('rv');box.hidden=true;$('sr').textContent='Sold by '+x.seller;if(!x.sid||!db||demo)return;
+const {data}=await db.from('reviews').select('*').eq('seller_id',x.sid).order('created_at',{ascending:false});if(sel!==x)return;
+const rs=data||[],avg=rs.length?rs.reduce((t,r)=>t+r.rating,0)/rs.length:0;
+$('sr').textContent='Sold by '+x.seller+(rs.length?` · ★ ${avg.toFixed(1)} (${rs.length})`:'');
+const can=user&&user.id!==x.sid;
+box.innerHTML='<h4>Seller reviews</h4>'+(rs.length?rs.slice(0,5).map(r=>`<div class="rv1"><b>${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</b> ${esc(r.reviewer_name)}<br>${esc(r.comment||'')}</div>`).join(''):'<p>No reviews yet.</p>')+(can?'<form id="rf"><div class="fd" style="margin-top:12px"><label for="rr">Your rating</label><select id="rr"><option value="5">5 – Excellent</option><option value="4">4 – Good</option><option value="3">3 – Okay</option><option value="2">2 – Poor</option><option value="1">1 – Bad</option></select></div><div class="fd" style="margin-top:10px"><textarea id="rt" placeholder="How was your experience?"></textarea></div><button class="btn alt" type="submit" style="margin-top:10px">Submit review</button><div class="msg" id="rm" role="status"></div><p class="hint">Only buyers with a delivered order can review a seller.</p></form>':'');
+box.hidden=false}
+$('rv').addEventListener('submit',async e=>{e.preventDefault();if(!sel||!user)return;
+const {error}=await db.from('reviews').insert({seller_id:sel.sid,reviewer_name:user.email.split('@')[0],rating:Number($('rr').value),comment:$('rt').value.trim()||null});
+if(error){$('rm').textContent='Only buyers with a delivered order can review this seller (one review each).';return}
+toast('Thanks for your review!');loadRv(sel)});
+/* media stage */
+let mvp;function loadMV(){return mvp||(mvp=new Promise(r=>{const sc=document.createElement('script');sc.type='module';sc.src='https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js';sc.onload=r;sc.onerror=r;document.head.appendChild(sc)}))}
+function setM(m,x){const im=$('dm'),st=$('dp'),old=st.querySelector('video,model-viewer');
+if(old){if(old.pause)old.pause();old.remove()}
+im.hidden=true;if(!m)return;
+if(m.t==='i'){im.onerror=()=>{im.hidden=true};im.hidden=false;im.src=m.u;im.alt=x.name;return}
+if(m.t==='v'){const v=document.createElement('video');v.src=m.u;v.controls=true;v.playsInline=true;v.preload='metadata';v.setAttribute('aria-label','Product video');st.insertBefore(v,$('th'));return}
+loadMV().then(()=>{if(sel!==x)return;const g=document.createElement('model-viewer');g.setAttribute('src',m.u);g.setAttribute('alt','3D view of '+x.name);g.setAttribute('camera-controls','');g.setAttribute('auto-rotate','');g.setAttribute('ar','');g.setAttribute('shadow-intensity','1');st.insertBefore(g,$('th'))})}
+/* product page */
 function show(x){sel=x;
-$('dp').style.background=COL[x.category]||'#C5D1B3';$('di').textContent=x.category;
-const ph=x.photos&&x.photos.length?x.photos:(x.photo?[x.photo]:[]),im=$('dm');
-function pic(u){im.onerror=()=>{im.hidden=true};im.hidden=!u;if(u){im.src=u;im.alt=x.name}}
-pic(ph[0]);
-$('th').innerHTML=ph.length>1?ph.map((u,i)=>`<button type="button" class="${i?'':'on'}" data-t="${i}" aria-label="Photo ${i+1}"><img src="${esc(u)}" alt=""></button>`).join(''):'';
-$('th').onclick=e=>{const t=e.target.closest('[data-t]');if(!t)return;pic(ph[+t.dataset.t]);$('th').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===t))};
-$('dc').textContent=x.category;$('mt').textContent=x.name;$('dpr').textContent='₹'+Number(x.price).toLocaleString('en-IN');
+$('dp').style.background=COL[x.category]||'#1E3A2F';$('di').textContent=x.category;
+const md=(x.photos&&x.photos.length?x.photos:(x.photo?[x.photo]:[])).map(u=>({t:'i',u}));
+if(x.video)md.push({t:'v',u:x.video});if(x.model)md.push({t:'m',u:x.model});
+setM(md[0],x);
+$('th').innerHTML=md.length>1?md.map((m,i)=>`<button type="button" class="${i?'':'on'}" data-t="${i}" aria-label="${m.t==='v'?'Video':m.t==='m'?'3D view':'Photo '+(i+1)}">${m.t==='i'?`<img src="${esc(m.u)}" alt="">`:`<span class="mt">${m.t==='v'?'&#9654;':'3D'}</span>`}</button>`).join(''):'';
+$('th').onclick=e=>{const t=e.target.closest('[data-t]');if(!t)return;setM(md[+t.dataset.t],x);$('th').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===t))};
+$('dc').textContent=x.category;$('mt').textContent=x.name;$('dpr').textContent=money(x.price);document.title=x.name+' – Rewear Esthétique';
 const rows=[['Brand',x.brand],['Fabric',x.fabric],['Size',x.size],['Condition',x.condition],['Category',x.category],['Seller',x.seller],['Listed',x.created?new Date(x.created).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}):''],['Payment','Cash on delivery']].filter(r=>r[1]);
 $('dl').innerHTML=rows.map(r=>`<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`).join('');
 $('mx').textContent=x.description||'The seller hasn’t added a description yet.';
 $('cs').href=`mailto:${encodeURIComponent(x.contact)}?subject=${encodeURIComponent('Interested in '+x.name)}&body=${encodeURIComponent('Hi '+x.seller+', is '+x.name+' still available?')}`;
-$('bb').hidden=!x.id||demo;$('of').hidden=true;$('om').textContent='';
+pb2();loadRv(x);
 const more=x.sid?ALL.filter(o=>o.sid===x.sid&&o.id!==x.id).slice(0,6):[];
 $('mo').hidden=!more.length;$('mh').textContent='More from '+x.seller;
-$('mg').innerHTML=more.map(o=>`<button type="button" class="mi" data-m="${o.id}"><div style="background:${COL[o.category]||'#C5D1B3'}">${esc(o.category)}${o.photos&&o.photos[0]?`<img src="${esc(o.photos[0])}" alt="" onerror="this.remove()">`:''}</div><span>₹${Number(o.price).toLocaleString('en-IN')}</span></button>`).join('');
-$('mb').classList.add('on');document.querySelector('.md.dt').scrollTop=0}
-$('mg').addEventListener('click',e=>{const m=e.target.closest('[data-m]');if(!m)return;const o=ALL.find(z=>String(z.id)===m.dataset.m);if(o)show(o)});
-function cm(){$('mb').classList.remove('on')}
-$('mb').addEventListener('click',e=>{if(e.target.id==='mb')cm()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')cm()});
-$('bb').addEventListener('click',()=>{$('bb').hidden=true;$('of').hidden=false;$('on').focus()});
-$('of').addEventListener('submit',async e=>{e.preventDefault();
-const {error}=await db.from('orders').insert({listing_id:sel.id,buyer_name:$('on').value.trim(),buyer_phone:$('op').value.trim(),buyer_address:$('oa').value.trim(),payment_method:'cod',payment_status:'pending'});
-if(error){$('om').textContent='Could not place the order. Please try again.';return}
-e.target.reset();cm();toast('Order placed! The seller will contact you.')});
+$('mg').innerHTML=more.map(o=>`<button type="button" class="mi" data-m="${esc(o.id)}"><div style="background:${COL[o.category]||'#1E3A2F'}">${esc(o.category)}${o.photos&&o.photos[0]?`<img src="${esc(o.photos[0])}" alt="" onerror="this.remove()">`:''}</div><span>${money(o.price)}</span></button>`).join('');
+$('home').hidden=true;$('pv').hidden=false;window.scrollTo(0,0)}
+$('mg').addEventListener('click',e=>{const m=e.target.closest('[data-m]');if(m)location.hash='#item-'+m.dataset.m});
+function route(){const m=location.hash.match(/^#item-(.+)$/),x=m&&ALL.find(o=>String(o.id)===m[1]);
+if(x){show(x);return}
+document.title='Rewear Esthétique';$('pv').hidden=true;$('home').hidden=false;sel=null;if(location.hash==='#browse')$('browse').scrollIntoView()}
+window.addEventListener('hashchange',route);
 
 /* auth */
 function am(t){$('am').textContent=t}
-function upd(){$('au').hidden=!!user;$('lw').hidden=!user;if(user){$('wm').textContent='Signed in as '+user.email;adm();$('se').value=$('se').value||user.email;orders()}}
-async function orders(){
-const {data,error}=await db.from('orders').select('*, listings(name)').order('created_at',{ascending:false});
-$('ol').innerHTML=error||!data||!data.length?'No orders yet.':data.map(o=>`<div><b>${esc(o.listings&&o.listings.name)}</b><br>${esc(o.buyer_name)} · ${esc(o.buyer_phone)}<br>${esc(o.buyer_address)}<br>Cash on delivery · ${esc(o.payment_status)}</div>`).join('')}
+const ST=['placed','confirmed','shipped','delivered'];
+let editId=null,MY=[];
+function upd(){$('au').hidden=!!user;$('lw').hidden=!user;if(user){$('wm').textContent='Signed in as '+user.email;$('se').value=$('se').value||user.email;adm()}else endEdit()}
+function tab(n){document.querySelectorAll('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==n);document.querySelectorAll('#tb [data-tab]').forEach(b=>b.classList.toggle('on',b.dataset.tab===n));if(n==='mine')loadMine();if(n==='ord')loadOrd();if(n==='adm')adm()}
+$('tb').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b)tab(b.dataset.tab)});
+function endEdit(){editId=null;$('lt').textContent='List an item';$('pb').innerHTML='Publish my listing &#8599;';$('ce').hidden=true;$('lf').reset();$('se').value=user?user.email:''}
+$('ce').addEventListener('click',endEdit);
+function trk(st){if(st==='cancelled')return '<div class="bdg">Cancelled</div>';const i=ST.indexOf(st);return `<div class="trk">${ST.map((t,k)=>`<span class="${k<=i?'on':''}">${t}</span>`).join('')}</div>`}
+async function loadOrd(){
+const a=await db.from('orders').select('*, listings(name,price)').eq('buyer_id',user.id).order('created_at',{ascending:false});
+$('mo2').innerHTML=a.error||!a.data||!a.data.length?'You haven’t placed any orders yet.':a.data.map(o=>`<div class="row2"><b>${esc(o.listings&&o.listings.name||'Item')}</b> · ${o.listings?money(o.listings.price):''}<br>${new Date(o.created_at).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})} · Cash on delivery${trk(o.status)}</div>`).join('');
+const b=await db.from('orders').select('*, listings!inner(name,price,seller_id)').eq('listings.seller_id',user.id).order('created_at',{ascending:false});
+$('ol').innerHTML=b.error||!b.data||!b.data.length?'No orders yet.':b.data.map(o=>`<div class="row2"><b>${esc(o.listings.name)}</b> · ${money(o.listings.price)}<br>${esc(o.buyer_name)} · ${esc(o.buyer_phone)}<br>${esc(o.buyer_address)}<br><select class="so" data-o="${o.id}" aria-label="Order status">${[...ST,'cancelled'].map(t=>`<option${t===o.status?' selected':''}>${t}</option>`).join('')}</select></div>`).join('')}
+$('ol').addEventListener('change',async e=>{const sl=e.target.closest('[data-o]');if(!sl)return;const {error}=await db.from('orders').update({status:sl.value}).eq('id',sl.dataset.o);toast(error?'Could not update the order.':'Order status updated')});
+async function loadMine(){
+const {data,error}=await db.from('listings').select('*').eq('seller_id',user.id).order('created_at',{ascending:false});MY=data||[];
+$('ml').innerHTML=error||!MY.length?'You haven’t listed anything yet.':MY.map(l=>`<div class="row2"><b>${esc(l.name)}</b> · ${money(l.price)}<br><span class="bdg">${l.status==='sold'?'Sold':l.approved?'Live':'Pending review'}</span><br><button class="ab" data-e="${l.id}">Edit</button><button class="ab" data-k="${l.id}">${l.status==='sold'?'Relist':'Mark sold'}</button><button class="ab" data-d="${l.id}">Delete</button></div>`).join('')}
+$('ml').addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;
+if(b.dataset.e){const l=MY.find(z=>z.id===b.dataset.e);if(!l)return;editId=l.id;
+[['n','name'],['d','description'],['br','brand'],['fa','fabric'],['sn','seller_name'],['se','contact']].forEach(([i,k])=>$(i).value=l[k]||'');
+$('c').value=l.category;$('s').value=l.size;$('k').value=l.condition;$('p').value=l.price;$('u').value='';
+$('lt').textContent='Edit listing';$('pb').textContent='Save changes';$('ce').hidden=false;tab('sell');return}
+if(b.dataset.k){const l=MY.find(z=>z.id===b.dataset.k),r=await db.from('listings').update({status:l.status==='sold'?'available':'sold'}).eq('id',l.id);if(r.error)toast('Could not update.');await loadMine();await load();return}
+if(b.dataset.d){if(!confirm('Delete this listing permanently?'))return;const r=await db.from('listings').delete().eq('id',b.dataset.d);if(r.error)toast('Could not delete.');await loadMine();await load()}});
 async function auth(kind){
 if(!db){am('Could not reach the server.');return}
 const email=$('ae').value.trim(),password=$('ap').value;
@@ -291,7 +404,7 @@ if(db){db.auth.getSession().then(({data})=>{user=data.session?data.session.user:
 async function adm(){
 let ok=false;
 try{const {data}=await db.from('admins').select('user_id').eq('user_id',user.id);ok=!!(data&&data.length)}catch(e){}
-$('ad').hidden=!ok;if(!ok)return;
+$('tba').hidden=!ok;if(!ok)return;
 const {data,error}=await db.from('listings').select('*').order('created_at',{ascending:false}).limit(100);
 $('al').innerHTML=error||!data||!data.length?'No listings yet.':data.map(l=>`<div><b>${esc(l.name)}</b> · ₹${esc(l.price)} · ${esc(l.seller_name)}<br>${l.approved?'Live':'Pending approval'} · ${esc(l.status)}<br>${l.approved?`<button class="ab" data-a="hide" data-id="${l.id}">Hide</button>`:`<button class="ab" data-a="ok" data-id="${l.id}">Approve</button>`}<button class="ab" data-a="del" data-id="${l.id}">Delete</button></div>`).join('')}
 $('al').addEventListener('click',async e=>{
@@ -310,19 +423,32 @@ for(const f of files){if(!f.type.startsWith('image/')||f.size>5*1024*1024)throw 
 const path=`${user.id}/${Date.now()}-${Math.random().toString(36).slice(2,7)}-${f.name.replace(/[^a-z0-9._-]/gi,'_')}`;
 const up=await db.storage.from('listing-photos').upload(path,f,{contentType:f.type});if(up.error)throw up.error;
 photos.push(db.storage.from('listing-photos').getPublicUrl(path).data.publicUrl)}
-const {error}=await db.from('listings').insert({name:$('n').value.trim(),category:$('c').value,size:$('s').value,condition:$('k').value,price:Number($('p').value),description:$('d').value.trim(),photo_url:photos[0]||null,photos,brand:$('br').value.trim()||null,fabric:$('fa').value.trim()||null,seller_name:$('sn').value.trim(),contact:$('se').value.trim()});
+const vf=$('vd').files[0],mf=$('m3').files[0];let video_url=null,model_url=null;
+const put=async(f,ct)=>{const path=`${user.id}/${Date.now()}-${Math.random().toString(36).slice(2,7)}-${f.name.replace(/[^a-z0-9._-]/gi,'_')}`;const r=await db.storage.from('listing-photos').upload(path,f,{contentType:ct||f.type});if(r.error)throw r.error;return db.storage.from('listing-photos').getPublicUrl(path).data.publicUrl};
+fm.textContent='Uploading media…';
+if(vf){if(!/^video\//.test(vf.type)||vf.size>20*1024*1024)throw new Error('Video must be MP4 or WebM under 20 MB.');video_url=await put(vf)}
+if(mf){if(!/\.glb$/i.test(mf.name)||mf.size>20*1024*1024)throw new Error('3D model must be a .glb file under 20 MB.');model_url=await put(mf,'model/gltf-binary')}
+const f2={name:$('n').value.trim(),category:$('c').value,size:$('s').value,condition:$('k').value,price:Number($('p').value),description:$('d').value.trim(),brand:$('br').value.trim()||null,fabric:$('fa').value.trim()||null};
+let error;
+if(editId){if(photos.length){f2.photo_url=photos[0];f2.photos=photos}if(video_url)f2.video_url=video_url;if(model_url)f2.model_url=model_url;({error}=await db.from('listings').update(f2).eq('id',editId))}
+else({error}=await db.from('listings').insert({...f2,photo_url:photos[0]||null,photos,video_url,model_url,seller_name:$('sn').value.trim(),contact:$('se').value.trim()}));
 if(error)throw error;
-e.target.reset();$('se').value=user.email;fm.textContent='';ca();act='All';$('q').value='';bf();await load();$('browse').scrollIntoView({behavior:'smooth'});toast('Submitted! It goes live after approval.')
+const was=editId;endEdit();fm.textContent='';await load();
+if(was){tab('mine');toast('Saved. Edited listings are re-checked before going live.')}else{ca();act='All';$('q').value='';bf();location.hash='';location.hash='#browse';toast('Submitted! It goes live after approval.')}
 }catch(x){fm.textContent=x.message||'Something went wrong. Please try again.'}
 b.disabled=false});
-const dr=$('dr'),sd=$('sd'),bd=$('db'),mn=$('mn');
-function tg(el,o,f){el.classList.toggle('on',o);el.setAttribute('aria-hidden',!o);bd.classList.toggle('on',o);if(el===dr)mn.setAttribute('aria-expanded',o);if(o)(f||el.querySelector('.x')).focus()}
-function ca(){if(dr.classList.contains('on'))tg(dr,false);if(sd.classList.contains('on'))tg(sd,false)}
-mn.addEventListener('click',()=>tg(dr,true));$('dx').addEventListener('click',()=>{tg(dr,false);mn.focus()});$('sx').addEventListener('click',ca);bd.addEventListener('click',ca);
-dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tg(dr,false)));
-document.querySelectorAll('[data-s]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();ca();tg(sd,true,$('n'))}));
+const P={sell:$('sd'),wl:$('wl'),ct:$('ct'),hw:$('hw')},bd=$('db');
+function tg(el,o,f){el.classList.toggle('on',o);el.setAttribute('aria-hidden',!o);bd.classList.toggle('on',o);if(o)(f||el.querySelector('.x')).focus()}
+function ca(){Object.values(P).forEach(p=>p.classList.contains('on')&&tg(p,false))}
+function openP(k,f){ca();if(k==='wl')rw();if(k==='ct')rc();tg(P[k],true,f)}
+document.querySelectorAll('.dr .x').forEach(b=>b.addEventListener('click',ca));bd.addEventListener('click',ca);
+document.querySelectorAll('[data-s]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openP('sell',$('n'))}));
+document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openP(a.dataset.p)}));
+$('wb').addEventListener('click',()=>openP('wl'));$('acc').addEventListener('click',()=>openP('sell'));$('cb').addEventListener('click',()=>openP('ct'));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')ca()});
-bf();load();
+const cl=[['Email',CONTACT.email],['Phone',CONTACT.phone],['Address',CONTACT.address]].filter(r=>r[1]);
+if(cl.length){$('fct').hidden=false;$('fc2').innerHTML=cl.map(r=>`<div>${r[0]==='Email'?`<a href="mailto:${esc(r[1])}">${esc(r[1])}</a>`:r[0]==='Phone'?`<a href="tel:${esc(r[1])}">${esc(r[1])}</a>`:esc(r[1])}</div>`).join('')}
+bf();uc();load().then(route);
 </script>
 </body>
 </html>
