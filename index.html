@@ -126,6 +126,16 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 .md{max-height:92vh;overflow-y:auto}.md .btn{width:100%;margin-top:10px}.md .fd{margin-top:12px}.md .btn.alt{background:transparent;border-color:#22201C;color:#22201C}
 .note{grid-column:1/-1;font-size:13px;color:var(--mut);margin:0 0 4px}
 .ab{min-height:44px;padding:0 14px;margin:6px 8px 0 0;border:2px solid #22201C;border-radius:12px;background:transparent;color:#22201C;font-weight:700;font-size:13px;cursor:pointer}.ab:hover{background:#22201C;color:#F6F2EB}
+.md.dt{max-width:900px;padding:0}.dg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.dp{position:relative;min-height:460px;display:grid;place-items:center;overflow:hidden}.dp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dp i{font:600 64px 'Fraunces',serif;font-style:normal;color:#22201C26;text-transform:uppercase}
+.dd{padding:44px 32px 32px;display:flex;flex-direction:column;gap:10px;min-width:0}.dd h3{font-size:34px;line-height:1.1;margin:0}.dd h4{margin:14px 0 0;font:600 18px 'Fraunces',serif}.dd p{margin:0}
+.dpr{font:600 38px 'Fraunces',serif;color:#5F7352}
+.dl{margin:8px 0 0;display:grid}.dl div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #22201C22;font-size:14px}.dl dt{color:#6B655C}.dl dd{margin:0;font-weight:700;text-align:right}
+.p{cursor:pointer}
+.th{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;z-index:2}.th button{width:56px;height:56px;border-radius:10px;border:2px solid #F6F2EB;padding:0;overflow:hidden;cursor:pointer;background:#fff;opacity:.85}.th button.on{border-color:#22201C;opacity:1}.th img{width:100%;height:100%;object-fit:cover;display:block}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px;margin-top:10px}.mi{border:2px solid #22201C22;border-radius:14px;padding:0;overflow:hidden;cursor:pointer;background:#fff;text-align:left;font:inherit;color:#22201C}.mi:hover{border-color:#22201C}.mi div{height:84px;position:relative;display:grid;place-items:center;font:600 12px 'Fraunces',serif;color:#22201C66}.mi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.mi span{display:block;padding:6px 8px;font-size:13px;font-weight:700}
+@media(max-width:700px){.dg{grid-template-columns:1fr}.dp{min-height:300px}.dd{padding:24px 20px 24px}.dd h3{font-size:28px}}
 @media(max-width:700px){.links{display:none}.fg{grid-template-columns:1fr}.fd.full{grid-column:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ph{height:160px}.pi h3{font-size:15px}.pr b{font-size:20px}.art{min-height:440px}.fc{padding:20px}}
 </style>
 </head>
@@ -150,7 +160,8 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <div class="fd"><label for="s">Size *</label><select id="s" required><option value="">Choose</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>Free size</option><option>UK 5</option><option>UK 6</option><option>UK 7</option><option>UK 8</option><option>Other</option></select></div>
 <div class="fd"><label for="k">Condition *</label><select id="k" required><option value="">Choose</option><option>Like new</option><option>Excellent</option><option>Good</option><option>Fair</option></select></div>
 <div class="fd"><label for="p">Price (₹) *</label><input id="p" type="number" min="1" required placeholder="499"></div>
-<div class="fd full"><label for="u">Photo (max 5 MB)</label><input id="u" type="file" accept="image/*"></div>
+<div class="fd full"><label for="u">Photos (up to 4, max 5 MB each)</label><input id="u" type="file" accept="image/*" multiple></div>
+<div class="fd"><label for="br">Brand</label><input id="br" placeholder="e.g. Levi’s"></div><div class="fd"><label for="fa">Fabric</label><input id="fa" placeholder="e.g. Cotton"></div>
 <div class="fd full"><label for="d">Description</label><textarea id="d" placeholder="Colour, brand, fit, any flaws…"></textarea></div>
 <div class="fd"><label for="sn">Your name *</label><input id="sn" required></div>
 <div class="fd"><label for="se">Contact email *</label><input id="se" type="email" required></div>
@@ -187,9 +198,13 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <section style="padding-top:0"><div class="w"><div class="cta"><div class="eb" style="color:#A9B896">Your closet, reimagined</div><h2>Got clothes to pass on?</h2><p>List a piece in a minute. You set the price, buyers get in touch directly.</p><a class="btn" href="#sell" data-s>List your clothes &#8599;</a></div></div></section>
 </main>
 <footer><div class="w ft"><div><a class="brand" href="#"><span class="mark">RE</span>Rewear Esthétique</a><p style="margin:12px 0 0">Wear better. Waste less. © 2026</p></div><nav class="fl2" aria-label="Footer"><a href="#browse">Shop</a><a href="#why">Why Rewear</a><a href="#sell" data-s>Sell an item</a><a href="#">Back to top</a></nav></div></footer>
-<div class="mb" id="mb"><div class="md" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="x" aria-label="Close" onclick="cm()">&times;</button><h3 id="mt"></h3><p id="mx"></p><a class="btn" id="cs" href="#">Contact seller</a>
+<div class="mb" id="mb"><div class="md dt" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="x" aria-label="Close" onclick="cm()">&times;</button>
+<div class="dg"><div class="dp" id="dp"><i id="di"></i><img id="dm" alt="" hidden><div class="th" id="th"></div></div>
+<div class="dd"><div class="eb" id="dc"></div><h3 id="mt"></h3><div class="dpr" id="dpr"></div>
+<dl class="dl" id="dl"></dl><h4>About this piece</h4><p id="mx"></p>
+<a class="btn" id="cs" href="#">Contact seller</a>
 <button class="btn alt" id="bb" type="button">Order · cash on delivery</button>
-<form id="of" hidden><div class="fd"><label for="on">Your name</label><input id="on" required></div><div class="fd"><label for="op">Phone</label><input id="op" type="tel" required></div><div class="fd"><label for="oa">Delivery address</label><textarea id="oa" required></textarea></div><button class="btn" type="submit">Place order</button><div class="msg" id="om" role="status"></div></form></div></div>
+<form id="of" hidden><div class="fd"><label for="on">Your name</label><input id="on" required></div><div class="fd"><label for="op">Phone</label><input id="op" type="tel" required></div><div class="fd"><label for="oa">Delivery address</label><textarea id="oa" required></textarea></div><button class="btn" type="submit">Place order</button><div class="msg" id="om" role="status"></div></form><div id="mo" hidden><h4 id="mh"></h4><div class="mg" id="mg"></div></div></div></div></div></div>
 <div class="ts" id="ts" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
@@ -211,7 +226,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(m){const t=$('ts');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
 function bf(){$('fl').innerHTML=CATS.map(c=>`<button class="f${c===act?' on':''}" data-c="${c}">${c}</button>`).join('')}
-const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description});
+const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description,created:r.created_at,brand:r.brand,fabric:r.fabric,photos:r.photos&&r.photos.length?r.photos:(r.photo_url?[r.photo_url]:[]),sid:r.seller_id});
 async function load(){
 ALL=S;demo=true;
 if(db){try{const {data,error}=await db.from('listings').select('*').eq('status','available').eq('approved',true).order('created_at',{ascending:false});
@@ -220,16 +235,30 @@ render()}
 function render(){
 const q=$('q').value.toLowerCase();
 cur=ALL.filter(x=>(act==='All'||x.category===act)&&`${x.name} ${x.category} ${x.size} ${x.description||''}`.toLowerCase().includes(q));
-$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map((x,i)=>`<article class="p"><div class="ph" style="background:${COL[x.category]||'#C5D1B3'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span><button class="hr" aria-label="Save item" data-h="${i}">&#9825;</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · Size ${esc(x.size)}</div><div class="pr"><b>₹${Number(x.price).toLocaleString('en-IN')}</b><button class="btn sm" data-v="${i}">View</button></div><div class="sl">Listed by ${esc(x.seller)}</div></div></article>`).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
+$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map((x,i)=>`<article class="p" data-v="${i}"><div class="ph" style="background:${COL[x.category]||'#C5D1B3'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span><button class="hr" aria-label="Save item" data-h="${i}">&#9825;</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · Size ${esc(x.size)}</div><div class="pr"><b>₹${Number(x.price).toLocaleString('en-IN')}</b><button class="btn sm" data-v="${i}">View</button></div></div></article>`).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
 $('fl').addEventListener('click',e=>{const c=e.target.dataset.c;if(!c)return;act=c;bf();render()});
 $('q').addEventListener('input',render);
 $('g').addEventListener('click',e=>{
 const h=e.target.closest('[data-h]');if(h){h.innerHTML=h.innerHTML==='♡'?'♥':'♡';return}
-const v=e.target.closest('[data-v]');if(!v)return;const x=sel=cur[+v.dataset.v];
-$('mt').textContent=x.name;$('mx').textContent=`₹${Number(x.price).toLocaleString('en-IN')} · ${x.condition} · Size ${x.size}. ${x.description||''} Seller: ${x.seller}.`;
+const v=e.target.closest('[data-v]');if(!v)return;show(cur[+v.dataset.v])});
+function show(x){sel=x;
+$('dp').style.background=COL[x.category]||'#C5D1B3';$('di').textContent=x.category;
+const ph=x.photos&&x.photos.length?x.photos:(x.photo?[x.photo]:[]),im=$('dm');
+function pic(u){im.onerror=()=>{im.hidden=true};im.hidden=!u;if(u){im.src=u;im.alt=x.name}}
+pic(ph[0]);
+$('th').innerHTML=ph.length>1?ph.map((u,i)=>`<button type="button" class="${i?'':'on'}" data-t="${i}" aria-label="Photo ${i+1}"><img src="${esc(u)}" alt=""></button>`).join(''):'';
+$('th').onclick=e=>{const t=e.target.closest('[data-t]');if(!t)return;pic(ph[+t.dataset.t]);$('th').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===t))};
+$('dc').textContent=x.category;$('mt').textContent=x.name;$('dpr').textContent='₹'+Number(x.price).toLocaleString('en-IN');
+const rows=[['Brand',x.brand],['Fabric',x.fabric],['Size',x.size],['Condition',x.condition],['Category',x.category],['Seller',x.seller],['Listed',x.created?new Date(x.created).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}):''],['Payment','Cash on delivery']].filter(r=>r[1]);
+$('dl').innerHTML=rows.map(r=>`<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`).join('');
+$('mx').textContent=x.description||'The seller hasn’t added a description yet.';
 $('cs').href=`mailto:${encodeURIComponent(x.contact)}?subject=${encodeURIComponent('Interested in '+x.name)}&body=${encodeURIComponent('Hi '+x.seller+', is '+x.name+' still available?')}`;
 $('bb').hidden=!x.id||demo;$('of').hidden=true;$('om').textContent='';
-$('mb').classList.add('on')});
+const more=x.sid?ALL.filter(o=>o.sid===x.sid&&o.id!==x.id).slice(0,6):[];
+$('mo').hidden=!more.length;$('mh').textContent='More from '+x.seller;
+$('mg').innerHTML=more.map(o=>`<button type="button" class="mi" data-m="${o.id}"><div style="background:${COL[o.category]||'#C5D1B3'}">${esc(o.category)}${o.photos&&o.photos[0]?`<img src="${esc(o.photos[0])}" alt="" onerror="this.remove()">`:''}</div><span>₹${Number(o.price).toLocaleString('en-IN')}</span></button>`).join('');
+$('mb').classList.add('on');document.querySelector('.md.dt').scrollTop=0}
+$('mg').addEventListener('click',e=>{const m=e.target.closest('[data-m]');if(!m)return;const o=ALL.find(z=>String(z.id)===m.dataset.m);if(o)show(o)});
 function cm(){$('mb').classList.remove('on')}
 $('mb').addEventListener('click',e=>{if(e.target.id==='mb')cm()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')cm()});
@@ -276,12 +305,12 @@ await adm();await load()});
 $('lf').addEventListener('submit',async e=>{e.preventDefault();
 if(!user)return;const b=$('pb'),fm=$('fm');b.disabled=true;fm.textContent='Publishing…';
 try{
-let photo_url=null;const f=$('u').files[0];
-if(f){if(!f.type.startsWith('image/')||f.size>5*1024*1024)throw new Error('Photo must be an image under 5 MB.');
-const path=`${user.id}/${Date.now()}-${f.name.replace(/[^a-z0-9._-]/gi,'_')}`;
+const files=Array.from($('u').files).slice(0,4),photos=[];
+for(const f of files){if(!f.type.startsWith('image/')||f.size>5*1024*1024)throw new Error('Each photo must be an image under 5 MB.');
+const path=`${user.id}/${Date.now()}-${Math.random().toString(36).slice(2,7)}-${f.name.replace(/[^a-z0-9._-]/gi,'_')}`;
 const up=await db.storage.from('listing-photos').upload(path,f,{contentType:f.type});if(up.error)throw up.error;
-photo_url=db.storage.from('listing-photos').getPublicUrl(path).data.publicUrl}
-const {error}=await db.from('listings').insert({name:$('n').value.trim(),category:$('c').value,size:$('s').value,condition:$('k').value,price:Number($('p').value),description:$('d').value.trim(),photo_url,seller_name:$('sn').value.trim(),contact:$('se').value.trim()});
+photos.push(db.storage.from('listing-photos').getPublicUrl(path).data.publicUrl)}
+const {error}=await db.from('listings').insert({name:$('n').value.trim(),category:$('c').value,size:$('s').value,condition:$('k').value,price:Number($('p').value),description:$('d').value.trim(),photo_url:photos[0]||null,photos,brand:$('br').value.trim()||null,fabric:$('fa').value.trim()||null,seller_name:$('sn').value.trim(),contact:$('se').value.trim()});
 if(error)throw error;
 e.target.reset();$('se').value=user.email;fm.textContent='';ca();act='All';$('q').value='';bf();await load();$('browse').scrollIntoView({behavior:'smooth'});toast('Submitted! It goes live after approval.')
 }catch(x){fm.textContent=x.message||'Something went wrong. Please try again.'}
