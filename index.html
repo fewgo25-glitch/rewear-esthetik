@@ -189,6 +189,9 @@ section.shop{border-top:1px solid #272B28}
 .th{top:12px;bottom:auto}.dp video,.dp model-viewer{position:absolute;inset:0;width:100%;height:100%;background:#0D0F0E;object-fit:contain}
 .th .mt{display:grid;place-items:center;width:100%;height:100%;background:#0D0F0E;color:#34D399;font:700 13px 'DM Sans',sans-serif}
 .md2{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:700;padding:4px 8px;border-radius:999px;background:#0D0F0Ecc;color:#34D399}
+.btn:disabled{opacity:.5;cursor:not-allowed}.btn:disabled:hover{background:#10B981;border-color:#10B981}
+.sdo{position:absolute;left:0;right:0;bottom:0;background:#F4F1E8;color:#0D0F0E;text-align:center;font:700 11px 'DM Sans',sans-serif;letter-spacing:.14em;padding:8px}
+.p.sold .ph img,.p.sold .ph i{opacity:.35}.p.sold .pr b{color:#A9A69C;text-decoration:line-through}.p.sold h3{color:#A9A69C}
 @media(max-width:700px){.dg{grid-template-columns:1fr}.dp{min-height:300px}.dd{padding:24px 20px 24px}.dd h3{font-size:28px}}
 @media(max-width:700px){.links{display:none}.fg{grid-template-columns:1fr}.fd.full{grid-column:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.f3{grid-template-columns:1fr;gap:28px}#pv .dg{gap:24px}.shop .bar{flex-direction:column;align-items:stretch}.sb{min-width:0}.pi h3{font-size:15px}.pr b{font-size:20px}.art{min-height:440px}.fc{padding:20px}}
 </style>
@@ -223,7 +226,7 @@ section.shop{border-top:1px solid #272B28}
 </div><button class="btn" id="pb" type="submit">Publish my listing &#8599;</button><button class="btn alt" id="ce" type="button" hidden>Cancel editing</button><div class="msg" id="fm" role="status"></div></form></div>
 <div data-pane="mine" hidden><h3>My listings</h3><div id="ml">Loading…</div></div>
 <div data-pane="ord" hidden><h3>My orders</h3><div id="mo2">Loading…</div><div class="od"><h4>Orders for your items</h4><div id="ol">No orders yet.</div></div></div>
-<div data-pane="adm" hidden><h3>Admin: all listings</h3><div id="al">Loading…</div></div>
+<div data-pane="adm" hidden><h3>Admin: all listings</h3><div id="al">Loading…</div><h3 style="margin-top:28px">All orders</h3><div id="ao">Loading…</div></div>
 </div></div>
 </aside>
 <aside class="dr sd" id="wl" aria-label="Wishlist" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>Wishlist</h3><div id="wlb">Nothing saved yet.</div></div></div></aside>
@@ -277,17 +280,18 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(m){const t=$('ts');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
 function bf(){$('fl').innerHTML=CATS.map(c=>`<button class="f${c===act?' on':''}" data-c="${c}">${c}</button>`).join('')}
-const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description,created:r.created_at,brand:r.brand,fabric:r.fabric,photos:r.photos&&r.photos.length?r.photos:(r.photo_url?[r.photo_url]:[]),sid:r.seller_id,video:r.video_url,model:r.model_url});
+const norm=r=>({id:r.id,name:r.name,category:r.category,size:r.size,condition:r.condition,price:r.price,photo:r.photo_url,seller:r.seller_name,contact:r.contact,description:r.description,created:r.created_at,brand:r.brand,fabric:r.fabric,photos:r.photos&&r.photos.length?r.photos:(r.photo_url?[r.photo_url]:[]),sid:r.seller_id,video:r.video_url,model:r.model_url,status:r.status});
 async function load(){
 ALL=S;demo=true;
-if(db){try{const {data,error}=await db.from('listings').select('*').eq('status','available').eq('approved',true).order('created_at',{ascending:false});
+if(db){try{const {data,error}=await db.from('listings').select('*').eq('approved',true).order('created_at',{ascending:false});
 if(!error&&data&&data.length){ALL=data.map(norm);demo=false}}catch(e){}}
 render()}
 function render(){
 const q=$('q').value.toLowerCase();
 cur=ALL.filter(x=>(act==='All'||x.category===act)&&(!$('fs').value||x.size===$('fs').value)&&(!$('fk2').value||x.condition===$('fk2').value)&&`${x.name} ${x.category} ${x.size} ${x.brand||''} ${x.description||''}`.toLowerCase().includes(q));
 const so=$('fo').value;if(so)cur=cur.slice().sort((a,b)=>so==='lo'?a.price-b.price:b.price-a.price);
-$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map(x=>{const id=esc(x.id),w=wish.has(String(x.id));return `<article class="p" data-v="${id}"><div class="ph" style="background:${COL[x.category]||'#1E3A2F'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span>${x.video||x.model?`<span class="md2">${x.model?'3D':''}${x.model&&x.video?' · ':''}${x.video?'&#9654; VIDEO':''}</span>`:''}<button class="hr${w?' on':''}" data-h="${id}" aria-label="${w?'Remove from':'Save to'} wishlist">${HS(w)}</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · ${esc(x.size)}</div><div class="pr"><b>${money(x.price)}</b>${demo?'':`<button class="bg" data-b="${id}" aria-label="Add to bag">${BG}</button>`}</div></div></article>`}).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
+cur=[...cur.filter(a=>a.status!=='sold'),...cur.filter(a=>a.status==='sold')];
+$('g').innerHTML=(demo?'<p class="note">Sample items. Real listings from sellers appear here once they are posted.</p>':'')+(cur.length?cur.map(x=>{const id=esc(x.id),w=wish.has(String(x.id));return `<article class="p${x.status==='sold'?' sold':''}" data-v="${id}"><div class="ph" style="background:${COL[x.category]||'#1E3A2F'}"><i>${esc(x.category)}</i>${x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" onerror="this.remove()">`:''}<span class="cd">${esc(x.condition)}</span>${x.video||x.model?`<span class="md2">${x.model?'3D':''}${x.model&&x.video?' · ':''}${x.video?'&#9654; VIDEO':''}</span>`:''}${x.status==='sold'?'<span class="sdo">SOLD OUT</span>':''}<button class="hr${w?' on':''}" data-h="${id}" aria-label="${w?'Remove from':'Save to'} wishlist">${HS(w)}</button></div><div class="pi"><h3>${esc(x.name)}</h3><div class="m">${esc(x.category)} · ${esc(x.size)}</div><div class="pr"><b>${money(x.price)}</b>${demo||x.status==='sold'?'':`<button class="bg" data-b="${id}" aria-label="Add to bag">${BG}</button>`}</div></div></article>`}).join(''):'<div class="emp">Nothing here yet. Try another search or category.</div>')}
 $('fl').addEventListener('click',e=>{const c=e.target.dataset.c;if(!c)return;act=c;bf();render()});
 $('q').addEventListener('input',render);['fs','fk2','fo'].forEach(i=>$(i).addEventListener('change',render));
 $('g').addEventListener('click',e=>{
@@ -299,19 +303,20 @@ const v=e.target.closest('[data-v]');if(v)location.hash='#item-'+v.dataset.v});
 function sv(){try{localStorage.setItem('rw_w',JSON.stringify([...wish]));localStorage.setItem('rw_b',JSON.stringify(bag))}catch(e){}}
 function uc(){$('wn').textContent=wish.size||'';$('cn').textContent=bag.length||''}
 function togWish(id){wish.has(id)?wish.delete(id):wish.add(id);sv();uc();render();pb2()}
-function addBag(id){if(bag.includes(id)){toast('Already in your bag');return}bag.push(id);sv();uc();toast('Added to your bag');pb2()}
-function pb2(){const x=sel;if(!x)return;const id=String(x.id),w=wish.has(id);$('ab').hidden=demo;$('ab').textContent=bag.includes(id)?'In your bag ✓':'Add to bag';$('pw').innerHTML=HS(w)+' '+(w?'Saved':'Save')}
+function addBag(id){const it=ALL.find(z=>String(z.id)===id);if(it&&it.status==='sold'){toast('Sorry, this item is sold out');return}
+if(bag.includes(id)){toast('Already in your bag');return}bag.push(id);sv();uc();toast('Added to your bag');pb2()}
+function pb2(){const x=sel;if(!x)return;const id=String(x.id),w=wish.has(id);const sd=x.status==='sold';$('ab').hidden=demo;$('ab').disabled=sd;$('ab').textContent=sd?'Sold out':bag.includes(id)?'In your bag ✓':'Add to bag';$('pw').innerHTML=HS(w)+' '+(w?'Saved':'Save')}
 $('ab').addEventListener('click',()=>{const id=String(sel.id);bag.includes(id)?openP('ct'):addBag(id)});
 $('pw').addEventListener('click',()=>togWish(String(sel.id)));
 function rw(){const it=ALL.filter(x=>wish.has(String(x.id)));
 $('wlb').innerHTML=it.length?it.map(x=>`<div class="rw"><a class="tn" href="#item-${esc(x.id)}" onclick="ca()" style="background:${COL[x.category]||'#1E3A2F'}">${x.photo?`<img src="${esc(x.photo)}" alt="" onerror="this.remove()">`:''}</a><div><b>${esc(x.name)}</b><br>${money(x.price)}</div><button class="ab" data-w="${esc(x.id)}">Remove</button></div>`).join(''):'Nothing saved yet.'}
 $('wlb').addEventListener('click',e=>{const b=e.target.closest('[data-w]');if(!b)return;wish.delete(b.dataset.w);sv();uc();rw();render();pb2()});
-function rc(){const it=ALL.filter(x=>bag.includes(String(x.id)));
+function rc(){const it=ALL.filter(x=>bag.includes(String(x.id))&&x.status!=='sold');
 $('cbl').innerHTML=it.length?it.map(x=>`<div class="rw"><a class="tn" href="#item-${esc(x.id)}" onclick="ca()" style="background:${COL[x.category]||'#1E3A2F'}">${x.photo?`<img src="${esc(x.photo)}" alt="" onerror="this.remove()">`:''}</a><div><b>${esc(x.name)}</b><br>${money(x.price)}</div><button class="ab" data-r="${esc(x.id)}">Remove</button></div>`).join(''):'Your bag is empty.';
 $('ctt').hidden=$('cf').hidden=!it.length;$('ch').textContent=user?'This order will appear under Orders in your account.':'Tip: log in first to track this order from your account.';$('ctv').textContent=money(it.reduce((t,x)=>t+Number(x.price),0))}
 $('cbl').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(!b)return;bag=bag.filter(i=>i!==b.dataset.r);sv();uc();rc();pb2()});
 $('cf').addEventListener('submit',async e=>{e.preventDefault();
-const it=ALL.filter(x=>bag.includes(String(x.id)));if(!it.length||!db||demo)return;
+const it=ALL.filter(x=>bag.includes(String(x.id))&&x.status!=='sold');if(!it.length||!db||demo)return;
 const rows=it.map(x=>({listing_id:x.id,buyer_name:$('cbn').value.trim(),buyer_phone:$('cbp').value.trim(),buyer_address:$('cba').value.trim(),payment_method:'cod',payment_status:'pending'}));
 const {error}=await db.from('orders').insert(rows);
 if(error){$('cm2').textContent='Could not place the order. Please try again.';return}
@@ -351,7 +356,7 @@ $('dl').innerHTML=rows.map(r=>`<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`
 $('mx').textContent=x.description||'The seller hasn’t added a description yet.';
 $('cs').href=`mailto:${encodeURIComponent(x.contact)}?subject=${encodeURIComponent('Interested in '+x.name)}&body=${encodeURIComponent('Hi '+x.seller+', is '+x.name+' still available?')}`;
 pb2();loadRv(x);
-const more=x.sid?ALL.filter(o=>o.sid===x.sid&&o.id!==x.id).slice(0,6):[];
+const more=x.sid?ALL.filter(o=>o.sid===x.sid&&o.id!==x.id&&o.status!=='sold').slice(0,6):[];
 $('mo').hidden=!more.length;$('mh').textContent='More from '+x.seller;
 $('mg').innerHTML=more.map(o=>`<button type="button" class="mi" data-m="${esc(o.id)}"><div style="background:${COL[o.category]||'#1E3A2F'}">${esc(o.category)}${o.photos&&o.photos[0]?`<img src="${esc(o.photos[0])}" alt="" onerror="this.remove()">`:''}</div><span>${money(o.price)}</span></button>`).join('');
 $('home').hidden=true;$('pv').hidden=false;window.scrollTo(0,0)}
@@ -376,7 +381,7 @@ const a=await db.from('orders').select('*, listings(name,price)').eq('buyer_id',
 $('mo2').innerHTML=a.error||!a.data||!a.data.length?'You haven’t placed any orders yet.':a.data.map(o=>`<div class="row2"><b>${esc(o.listings&&o.listings.name||'Item')}</b> · ${o.listings?money(o.listings.price):''}<br>${new Date(o.created_at).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})} · Cash on delivery${trk(o.status)}</div>`).join('');
 const b=await db.from('orders').select('*, listings!inner(name,price,seller_id)').eq('listings.seller_id',user.id).order('created_at',{ascending:false});
 $('ol').innerHTML=b.error||!b.data||!b.data.length?'No orders yet.':b.data.map(o=>`<div class="row2"><b>${esc(o.listings.name)}</b> · ${money(o.listings.price)}<br>${esc(o.buyer_name)} · ${esc(o.buyer_phone)}<br>${esc(o.buyer_address)}<br><select class="so" data-o="${o.id}" aria-label="Order status">${[...ST,'cancelled'].map(t=>`<option${t===o.status?' selected':''}>${t}</option>`).join('')}</select></div>`).join('')}
-$('ol').addEventListener('change',async e=>{const sl=e.target.closest('[data-o]');if(!sl)return;const {error}=await db.from('orders').update({status:sl.value}).eq('id',sl.dataset.o);toast(error?'Could not update the order.':'Order status updated')});
+$('ol').addEventListener('change',async e=>{const sl=e.target.closest('[data-o]');if(!sl)return;const {error}=await db.from('orders').update({status:sl.value}).eq('id',sl.dataset.o);toast(error?'Could not update the order.':'Order status updated');load()});
 async function loadMine(){
 const {data,error}=await db.from('listings').select('*').eq('seller_id',user.id).order('created_at',{ascending:false});MY=data||[];
 $('ml').innerHTML=error||!MY.length?'You haven’t listed anything yet.':MY.map(l=>`<div class="row2"><b>${esc(l.name)}</b> · ${money(l.price)}<br><span class="bdg">${l.status==='sold'?'Sold':l.approved?'Live':'Pending review'}</span><br><button class="ab" data-e="${l.id}">Edit</button><button class="ab" data-k="${l.id}">${l.status==='sold'?'Relist':'Mark sold'}</button><button class="ab" data-d="${l.id}">Delete</button></div>`).join('')}
@@ -406,7 +411,10 @@ let ok=false;
 try{const {data}=await db.from('admins').select('user_id').eq('user_id',user.id);ok=!!(data&&data.length)}catch(e){}
 $('tba').hidden=!ok;if(!ok)return;
 const {data,error}=await db.from('listings').select('*').order('created_at',{ascending:false}).limit(100);
-$('al').innerHTML=error||!data||!data.length?'No listings yet.':data.map(l=>`<div><b>${esc(l.name)}</b> · ₹${esc(l.price)} · ${esc(l.seller_name)}<br>${l.approved?'Live':'Pending approval'} · ${esc(l.status)}<br>${l.approved?`<button class="ab" data-a="hide" data-id="${l.id}">Hide</button>`:`<button class="ab" data-a="ok" data-id="${l.id}">Approve</button>`}<button class="ab" data-a="del" data-id="${l.id}">Delete</button></div>`).join('')}
+$('al').innerHTML=error||!data||!data.length?'No listings yet.':data.map(l=>`<div><b>${esc(l.name)}</b> · ₹${esc(l.price)} · ${esc(l.seller_name)}<br>${l.approved?'Live':'Pending approval'} · ${esc(l.status)}<br>${l.approved?`<button class="ab" data-a="hide" data-id="${l.id}">Hide</button>`:`<button class="ab" data-a="ok" data-id="${l.id}">Approve</button>`}<button class="ab" data-a="del" data-id="${l.id}">Delete</button></div>`).join('');allOrders()}
+async function allOrders(){const {data,error}=await db.from('orders').select('*, listings(name,price,seller_name)').order('created_at',{ascending:false}).limit(100);
+$('ao').innerHTML=error||!data||!data.length?'No orders yet.':data.map(o=>`<div class="row2"><b>${esc(o.listings&&o.listings.name||'Item')}</b> · ${o.listings?money(o.listings.price):''} · seller ${esc(o.listings&&o.listings.seller_name||'')}<br>${esc(o.buyer_name)} · ${esc(o.buyer_phone)}<br>${esc(o.buyer_address)}<br><select class="so" data-o="${o.id}" aria-label="Order status">${[...ST,'cancelled'].map(t=>`<option${t===o.status?' selected':''}>${t}</option>`).join('')}</select></div>`).join('')}
+$('ao').addEventListener('change',async e=>{const sl=e.target.closest('[data-o]');if(!sl)return;const {error}=await db.from('orders').update({status:sl.value}).eq('id',sl.dataset.o);toast(error?'Could not update the order.':'Order status updated');load()});
 $('al').addEventListener('click',async e=>{
 const b=e.target.closest('[data-a]');if(!b)return;const id=b.dataset.id,a=b.dataset.a;
 if(a==='del'&&!confirm('Delete this listing permanently?'))return;
