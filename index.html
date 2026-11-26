@@ -230,12 +230,12 @@ input,select,textarea,.flt select{font-size:16px}
 <div class="db" id="db"></div>
 
 <aside class="dr sd" id="sd" aria-label="Account" aria-hidden="true"><button class="x" id="sx" aria-label="Close">&times;</button><div class="sdi">
-<div class="fc" id="au"><h3>Your account</h3><p>Log in or create an account to sell, track orders and manage your listings.</p>
+<div class="fc" id="au"><h3>Your account</h3><p>Log in or create an account to track your orders.</p>
 <div class="fd"><label for="ae">Email</label><input id="ae" type="email" autocomplete="email"></div>
 <div class="fd" style="margin-top:12px"><label for="ap">Password (min 6 characters)</label><input id="ap" type="password" autocomplete="current-password"></div>
 <button class="btn" id="li" type="button">Log in</button><button class="btn alt" id="su" type="button">Create account</button><div class="msg" id="am" role="status"></div></div>
-<div class="fc" id="lw" hidden><div class="who"><span id="wm"></span><button id="lo" type="button">Log out</button></div><div class="tabs" id="tb"><button type="button" data-tab="sell" class="on">Sell</button><button type="button" data-tab="mine">My listings</button><button type="button" data-tab="ord">Orders</button><button type="button" data-tab="adm" id="tba" hidden>Admin</button></div>
-<div data-pane="sell"><h3 id="lt">List an item</h3><p>A few details so buyers know what they’re getting.</p>
+<div class="fc" id="lw" hidden><div class="who"><span id="wm"></span><button id="lo" type="button">Log out</button></div><div class="tabs" id="tb"><button type="button" data-tab="sell" id="tsl" hidden>Sell</button><button type="button" data-tab="mine" id="tmi" hidden>My listings</button><button type="button" data-tab="ord">Orders</button><button type="button" data-tab="adm" id="tba" hidden>Admin</button></div>
+<div data-pane="sell" hidden><h3 id="lt">List an item</h3><p>A few details so buyers know what they’re getting.</p>
 <form id="lf"><div class="fg">
 <div class="fd full"><label for="n">Item name *</label><input id="n" required placeholder="e.g. Blue denim jacket"></div>
 <div class="fd"><label for="c">Category *</label><select id="c" required><option value="">Choose</option><option>Tops</option><option>Bottoms</option><option>Dresses</option><option>Outerwear</option><option>Shoes</option><option>Accessories</option></select></div>
@@ -252,7 +252,7 @@ input,select,textarea,.flt select{font-size:16px}
 <div class="fd"><label for="se">Contact email *</label><input id="se" type="email" required></div>
 </div><button class="btn" id="pb" type="submit">Publish my listing &#8599;</button><button class="btn alt" id="ce" type="button" hidden>Cancel editing</button><div class="msg" id="fm" role="status"></div></form></div>
 <div data-pane="mine" hidden><h3>My listings</h3><div id="ml">Loading…</div></div>
-<div data-pane="ord" hidden><h3>My orders</h3><div id="mo2">Loading…</div><div class="od"><h4>Orders for your items</h4><div id="ol">No orders yet.</div></div></div>
+<div data-pane="ord" hidden><h3>My orders</h3><div id="mo2">Loading…</div><div class="od" id="odw" hidden><h4>Orders for your items</h4><div id="ol">No orders yet.</div></div></div>
 <div data-pane="adm" hidden><h3>Admin: all listings</h3><div id="al">Loading…</div><h3 style="margin-top:28px">All orders</h3><div id="ao">Loading…</div></div>
 </div></div>
 </aside>
@@ -267,7 +267,8 @@ input,select,textarea,.flt select{font-size:16px}
 <fieldset class="pm"><legend>Payment</legend><label><input type="radio" name="pmx" value="cod" checked> Cash on delivery</label><label id="pul"><input type="radio" name="pmx" value="upi" id="pmu"> Pay now with UPI</label><p class="m1" id="pmn"></p></fieldset>
 <p class="hint" id="ch"></p><button class="btn" id="cpb" type="submit">Place order</button><div class="msg" id="cm2" role="status"></div></form>
 </div></div></aside>
-<aside class="dr sd" id="hw" aria-label="How it works" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>How it works</h3><h4>Buying</h4><ol><li>Browse the collection and save your favourites.</li><li>Add pieces to your bag and order with cash on delivery.</li><li>The seller contacts you to arrange delivery.</li></ol><h4>Selling</h4><ol><li>Create a free seller account.</li><li>List your piece with photos and a price.</li><li>It goes live after a quick review.</li></ol></div></div></aside>
+<aside class="dr sd" id="hw" aria-label="How it works" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>How it works</h3><h4>Buying</h4><ol><li>Browse the collection and save your favourites.</li><li>Add pieces to your bag and order with cash on delivery.</li><li>The seller contacts you to arrange delivery.</li></ol><h4>Selling</h4><ol><li>Email us photos, size, condition and your price.</li><li>We review the piece and list it for you.</li></ol></div></div></aside>
+<aside class="dr sd" id="sl" aria-label="Sell with us" aria-hidden="true"><button class="x" aria-label="Close">&times;</button><div class="sdi"><div class="fc"><h3>Sell with us</h3><p>Every piece on Rewear Esthétique is listed by our team. Want to sell something? Email us and we’ll get back to you.</p><a class="btn" id="sle" href="#">Email us to sell</a><p class="hint">Please include photos, size, condition, brand and your price.</p><p class="hint" id="slt"></p></div></div></aside>
 <main>
 <div id="home">
 <div class="w hero"><h1>Thrift it.<br><span>Flex it.</span><br>Repeat.</h1><p>Pre-loved fashion, curated by the community.</p><div class="row"><a class="btn" href="#browse">Shop the collection</a></div></div>
@@ -303,10 +304,11 @@ const S=[
 const CATS=['All','Tops','Bottoms','Dresses','Outerwear','Shoes','Accessories'];
 const COL={Tops:'#1E3A2F',Bottoms:'#262C29',Dresses:'#24362E',Outerwear:'#2C3330',Shoes:'#1F2E2A',Accessories:'#2A3530'};
 const SB_URL='https://pzpoiksqildwmxguhsjh.supabase.co',SB_KEY='sb_publishable_LpFzHPDm4IyMgRm7lW3zxw_3AinQLm7';
-const CONTACT={email:'',phone:'',address:''};
+const SELL_EMAIL='yourname@example.com';
+const CONTACT={email:SELL_EMAIL,phone:'',address:''};
 S.forEach((x,i)=>x.id='sample-'+i);
 const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
-let fresh=false,shown=24,lastY=null,MD=[],MI=0,act='All',cur=[],ALL=[],demo=false,sel=null,user=null,db=null,wish=new Set(ls('rw_w',[])),bag=ls('rw_b',[]);
+let isAdm=false,seenAdm=false,fresh=false,shown=24,lastY=null,MD=[],MI=0,act='All',cur=[],ALL=[],demo=false,sel=null,user=null,db=null,wish=new Set(ls('rw_w',[])),bag=ls('rw_b',[]);
 const HS=f=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="${f?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.4-7 10-7 10z"/></svg>`;
 const BG='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></svg>';
 const money=n=>'₹'+Number(n).toLocaleString('en-IN');
@@ -459,7 +461,7 @@ function am(t){$('am').textContent=t}
 const ST=['placed','confirmed','shipped','delivered'];
 let editId=null,MY=[];
 function upd(){$('au').hidden=!!user;$('lw').hidden=!user;if(user){$('wm').textContent='Signed in as '+user.email;$('se').value=$('se').value||user.email;if(!$('up').value)$('up').value=ls('rw_upi','');adm()}else endEdit()}
-function tab(n){document.querySelectorAll('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==n);document.querySelectorAll('#tb [data-tab]').forEach(b=>b.classList.toggle('on',b.dataset.tab===n));if(n==='mine')loadMine();if(n==='ord')loadOrd();if(n==='adm')adm()}
+function tab(n){if(!isAdm&&(n==='sell'||n==='mine'))n='ord';document.querySelectorAll('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==n);document.querySelectorAll('#tb [data-tab]').forEach(b=>b.classList.toggle('on',b.dataset.tab===n));if(n==='mine')loadMine();if(n==='ord')loadOrd();if(n==='adm')adm()}
 $('tb').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b)tab(b.dataset.tab)});
 function endEdit(){editId=null;$('lt').textContent='List an item';$('pb').innerHTML='Publish my listing &#8599;';$('ce').hidden=true;$('lf').reset();$('se').value=user?user.email:'';$('up').value=ls('rw_upi','')}
 $('ce').addEventListener('click',endEdit);
@@ -497,6 +499,10 @@ dbReady.then(()=>{if(db){db.auth.getSession().then(({data})=>{user=data.session?
 async function adm(){
 let ok=false;
 try{const {data}=await db.from('admins').select('user_id').eq('user_id',user.id);ok=!!(data&&data.length)}catch(e){}
+isAdm=ok;$('tsl').hidden=$('tmi').hidden=!ok;$('odw').hidden=!ok;
+const cp=document.querySelector('[data-pane]:not([hidden])'),cn=cp&&cp.dataset.pane;
+if(!ok&&(!cn||cn==='sell'||cn==='mine'))tab('ord');
+if(ok&&(!cn||!seenAdm)){seenAdm=true;tab('sell')}
 $('tba').hidden=!ok;if(!ok)return;
 const {data,error}=await db.from('listings').select('*').order('created_at',{ascending:false}).limit(100);
 $('al').innerHTML=error||!data||!data.length?'No listings yet.':data.map(l=>`<div><b>${esc(l.name)}</b> · ₹${esc(l.price)} · ${esc(l.seller_name)}<br>${l.approved?'Live':'Pending approval'} · ${esc(l.status)}<br>${l.approved?`<button class="ab" data-a="hide" data-id="${l.id}">Hide</button>`:`<button class="ab" data-a="ok" data-id="${l.id}">Approve</button>`}<button class="ab" data-a="del" data-id="${l.id}">Delete</button></div>`).join('');allOrders()}
@@ -512,7 +518,7 @@ if(r.error){toast('Action failed: '+r.error.message);b.disabled=false;return}
 await adm();await load()});
 /* listing */
 $('lf').addEventListener('submit',async e=>{e.preventDefault();
-if(!user)return;const b=$('pb'),fm=$('fm');b.disabled=true;fm.textContent='Publishing…';
+if(!user||!isAdm)return;const b=$('pb'),fm=$('fm');b.disabled=true;fm.textContent='Publishing…';
 try{
 const files=Array.from($('u').files).slice(0,4),photos=[],stamp=()=>`${user.id}/${Date.now()}-${Math.random().toString(36).slice(2,7)}`;
 const pub=p=>db.storage.from('listing-photos').getPublicUrl(p).data.publicUrl,opt=t=>({contentType:t,cacheControl:'31536000'});
@@ -539,13 +545,14 @@ const was=editId;endEdit();fm.textContent='';await load();
 if(was){tab('mine');toast('Saved. Edited listings are re-checked before going live.')}else{ca();act='All';$('q').value='';bf();location.hash='';location.hash='#browse';toast('Submitted! It goes live after approval.')}
 }catch(x){fm.textContent=x.message||'Something went wrong. Please try again.'}
 b.disabled=false});
-const P={sell:$('sd'),wl:$('wl'),ct:$('ct'),hw:$('hw')},bd=$('db');
+const P={sell:$('sd'),wl:$('wl'),ct:$('ct'),hw:$('hw'),sl:$('sl')},bd=$('db');
 function tg(el,o,f){el.classList.toggle('on',o);el.setAttribute('aria-hidden',!o);bd.classList.toggle('on',o);document.body.style.overflow=o?'hidden':'';if(o&&matchMedia('(hover:hover)').matches)(f||el.querySelector('.x')).focus({preventScroll:true})}
 function ca(){Object.values(P).forEach(p=>p.classList.contains('on')&&tg(p,false))}
 function openP(k,f){ca();if(k==='wl')rw();if(k==='ct')rc();tg(P[k],true,f)}
 document.querySelectorAll('.dr .x').forEach(b=>b.addEventListener('click',ca));bd.addEventListener('click',ca);
-document.querySelectorAll('[data-s]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openP('sell',$('n'))}));
+document.querySelectorAll('[data-s]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();isAdm?openP('sell',$('n')):openP('sl')}));
 document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openP(a.dataset.p)}));
+$('sle').href='mailto:'+SELL_EMAIL+'?subject='+encodeURIComponent('I want to sell on Rewear Esthétique')+'&body='+encodeURIComponent('Hi, I’d like to sell:\n\nItem:\nSize:\nCondition:\nBrand:\nPrice (₹):\n\nPhotos attached.');$('slt').textContent='Or write to '+SELL_EMAIL;
 $('wb').addEventListener('click',()=>openP('wl'));$('acc').addEventListener('click',()=>openP('sell'));$('cb').addEventListener('click',()=>openP('ct'));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')ca()});
 const cl=[['Email',CONTACT.email],['Phone',CONTACT.phone],['Address',CONTACT.address]].filter(r=>r[1]);
